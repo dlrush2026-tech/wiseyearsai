@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Star, CheckCircle2, MessageSquare, ArrowRight } from "lucide-react";
+import { postTrackingEvent, buildTrackingPayload } from "@/lib/form-tracking";
 
 export const Route = createFileRoute("/feedback")({
   head: () => ({
@@ -46,8 +47,8 @@ function FeedbackPage() {
             How Are We Doing?
           </h1>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-            Thank you for training with Insightful Precision Solutions. Share how
-            your experience went so we can keep improving.
+            Thank you for training with Insightful Precision Solutions. Share how your experience
+            went so we can keep improving.
           </p>
         </div>
       </section>
@@ -62,8 +63,8 @@ function FeedbackPage() {
             </h2>
             <p className="text-base text-gray-600 leading-relaxed">
               You rated your experience{" "}
-              <strong className="text-gold">{userRating} out of 5 stars</strong>.
-              We appreciate you taking the time to share it.
+              <strong className="text-gold">{userRating} out of 5 stars</strong>. We appreciate you
+              taking the time to share it.
             </p>
             <div className="pt-2 flex flex-wrap justify-center gap-3">
               <Link
@@ -100,9 +101,7 @@ function FeedbackPage() {
                   >
                     <Star
                       className={`w-9 h-9 transition-colors ${
-                        (hoverRating !== null
-                          ? hoverRating >= star
-                          : (userRating ?? 0) >= star)
+                        (hoverRating !== null ? hoverRating >= star : (userRating ?? 0) >= star)
                           ? "text-gold fill-gold"
                           : "text-gray-300"
                       }`}
@@ -119,7 +118,21 @@ function FeedbackPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                if (userRating) setSubmitted(true);
+                if (!userRating) return;
+                const payload = buildTrackingPayload("feedback-rating", "Share Your Feedback");
+                postTrackingEvent(payload, {
+                  customFields: {
+                    wRlfdjnwngITW7iodyiY: {
+                      value: `${userRating}/5`,
+                      label: "Satisfaction Rating",
+                    },
+                    MgaopzMpsPk20qKNFrKl: {
+                      value: comment,
+                      label: "Feedback Comment",
+                    },
+                  },
+                });
+                setSubmitted(true);
               }}
               className="space-y-5"
             >
@@ -147,8 +160,8 @@ function FeedbackPage() {
                 Submit Feedback
               </button>
               <p className="text-xs text-gray-500 text-center leading-relaxed">
-                This form helps us understand your experience. Please don&apos;t
-                include sensitive personal or workplace information.
+                This form helps us understand your experience. Please don&apos;t include sensitive
+                personal or workplace information.
               </p>
             </form>
           </div>

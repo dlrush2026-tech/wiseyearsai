@@ -16,8 +16,8 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
           Two Ways to Build Your AI Skills
         </h2>
         <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-          Choose the path that matches your goals — individual learning or
-          training for your whole team.
+          Choose the path that matches your goals — individual learning or training for your whole
+          team.
         </p>
       </div>
 
@@ -27,14 +27,11 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
           <div className="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center mb-6">
             <User className="w-6 h-6 text-gold" />
           </div>
-          <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3">
-            Build Your AI Skills
-          </h3>
+          <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3">Build Your AI Skills</h3>
           <p className="text-base text-gray-600 leading-relaxed mb-6">
-            Learn how to use AI for everyday tasks, personal projects, writing,
-            research, planning, and professional development. Whether
-            you&apos;re new to AI or already have some experience, discover
-            practical ways to build your skills and use AI more confidently.
+            Learn how to use AI for everyday tasks, personal projects, writing, research, planning,
+            and professional development. Whether you&apos;re new to AI or already have some
+            experience, discover practical ways to build your skills and use AI more confidently.
           </p>
           <ul className="space-y-3 mb-8">
             {[
@@ -43,10 +40,7 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
               "Build skills you can use independently",
               "Learn how to use AI responsibly",
             ].map((b, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-base text-gray-700"
-              >
+              <li key={i} className="flex items-start gap-3 text-base text-gray-700">
                 <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <span>{b}</span>
               </li>
@@ -72,11 +66,10 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
             Help Your Team Build AI Skills
           </h3>
           <p className="text-base text-gray-300 leading-relaxed mb-6">
-            Give your employees practical opportunities to understand AI,
-            develop useful workplace skills, and explore responsible ways to
-            apply AI to their work. Training can be tailored to your
-            organization&apos;s goals, staff experience levels, and appropriate
-            workplace applications.
+            Give your employees practical opportunities to understand AI, develop useful workplace
+            skills, and explore responsible ways to apply AI to their work. Training can be tailored
+            to your organization&apos;s goals, staff experience levels, and appropriate workplace
+            applications.
           </p>
           <ul className="space-y-3 mb-8">
             {[
@@ -85,10 +78,7 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
               "Responsible AI use and awareness",
               "Training relevant to team needs",
             ].map((b, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 text-base text-gray-200"
-              >
+              <li key={i} className="flex items-start gap-3 text-base text-gray-200">
                 <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                 <span>{b}</span>
               </li>

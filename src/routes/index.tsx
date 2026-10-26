@@ -11,8 +11,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title:
-          "Practical AI Training for Mature Adults & Workforce | Wise Years AI",
+        title: "Practical AI Training for Mature Adults & Workforce | Wise Years AI",
       },
       {
         name: "description",

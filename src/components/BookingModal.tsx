@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { X, Calendar, Clock, CheckCircle2 } from "lucide-react";
+import { postTrackingEvent, buildTrackingPayload } from "@/lib/form-tracking";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -22,6 +23,19 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const payload = buildTrackingPayload("booking-consultation", "Book a Consulting Appointment");
+    postTrackingEvent(payload, {
+      customFields: {
+        wRlfdjnwngITW7iodyiY: {
+          value: formData.serviceType,
+          label: "Service of Interest",
+        },
+        MgaopzMpsPk20qKNFrKl: {
+          value: formData.preferredDate,
+          label: "Preferred Timeframe",
+        },
+      },
+    });
     setSubmitted(true);
   };
 

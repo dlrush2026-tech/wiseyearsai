@@ -104,10 +104,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
                 </button>
               </li>
               <li>
-                <Link
-                  to="/feedback"
-                  className="hover:text-gold transition-colors"
-                >
+                <Link to="/feedback" className="hover:text-gold transition-colors">
                   Share Your Feedback
                 </Link>
               </li>

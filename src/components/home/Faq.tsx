@@ -69,9 +69,7 @@ export function Faq({ onOpenBooking }: FaqProps) {
                     aria-expanded={open}
                     aria-controls={`faq-panel-${i}`}
                   >
-                    <span className="font-serif text-lg font-semibold text-gray-900">
-                      {f.q}
-                    </span>
+                    <span className="font-serif text-lg font-semibold text-gray-900">{f.q}</span>
                     <ChevronDown
                       className={`w-5 h-5 text-gold shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
                     />
@@ -98,8 +96,8 @@ export function Faq({ onOpenBooking }: FaqProps) {
             Ready to Build Your AI Confidence?
           </h2>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
-            Take the next step with practical, live, hands-on training designed
-            around your goals — for yourself or your team.
+            Take the next step with practical, live, hands-on training designed around your goals —
+            for yourself or your team.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button

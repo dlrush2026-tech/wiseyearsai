@@ -1,11 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  CheckCircle2,
-  ArrowRight,
-  User,
-  Users,
-  Briefcase,
-} from "lucide-react";
+import { CheckCircle2, ArrowRight, User, Users, Briefcase } from "lucide-react";
 import { useState } from "react";
 import { BookingModal } from "@/components/BookingModal";
 
@@ -96,9 +90,8 @@ function ServicesPage() {
             Practical AI Training Built for <span className="text-gold italic">Real People</span>
           </h1>
           <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Three ways to build AI skills — for yourself, your team, or your
-            organization. Each option is live, hands-on, and tailored to your
-            needs. No technical background required.
+            Three ways to build AI skills — for yourself, your team, or your organization. Each
+            option is live, hands-on, and tailored to your needs. No technical background required.
           </p>
         </div>
       </section>
@@ -117,9 +110,7 @@ function ServicesPage() {
               className="block rounded-xl bg-white border border-gray-200 p-5 hover:border-gold transition-colors"
             >
               <p className="text-sm text-gray-500">{p.label}</p>
-              <p className="font-serif text-lg font-bold text-gray-900 mt-1">
-                {p.text}
-              </p>
+              <p className="font-serif text-lg font-bold text-gray-900 mt-1">{p.text}</p>
             </a>
           ))}
         </div>
@@ -130,8 +121,7 @@ function ServicesPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((svc, i) => {
             const Icon = svc.icon;
-            const anchor =
-              i === 0 ? "individual" : i === 1 ? "team" : "consulting";
+            const anchor = i === 0 ? "individual" : i === 1 ? "team" : "consulting";
             return (
               <div
                 id={anchor}
@@ -148,22 +138,15 @@ function ServicesPage() {
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3">
-                    {svc.title}
-                  </h3>
-                  <p className="text-base text-gray-600 leading-relaxed mb-6">
-                    {svc.desc}
-                  </p>
+                  <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3">{svc.title}</h3>
+                  <p className="text-base text-gray-600 leading-relaxed mb-6">{svc.desc}</p>
 
                   <div className="space-y-3 mb-8">
                     <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400">
                       What You Will Gain:
                     </h4>
                     {svc.bullets.map((b, bi) => (
-                      <div
-                        key={bi}
-                        className="flex items-start gap-2.5 text-base text-gray-700"
-                      >
+                      <div key={bi} className="flex items-start gap-2.5 text-base text-gray-700">
                         <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
                         <span>{b}</span>
                       </div>
@@ -173,8 +156,7 @@ function ServicesPage() {
 
                 <div className="pt-6 border-t border-gray-100">
                   <p className="text-sm text-gray-500 mb-4">
-                    <strong className="text-gray-700">Ideal for:</strong>{" "}
-                    {svc.idealFor}
+                    <strong className="text-gray-700">Ideal for:</strong> {svc.idealFor}
                   </p>
                   <button
                     onClick={() => setModalOpen(true)}
@@ -197,8 +179,8 @@ function ServicesPage() {
             Ready to empower your team with safe, practical AI?
           </h2>
           <p className="text-gray-300 text-base max-w-2xl mx-auto leading-relaxed">
-            Every session is tailored to your organization's comfort level,
-            tools, and mission. No generic one-size-fits-all slide decks.
+            Every session is tailored to your organization's comfort level, tools, and mission. No
+            generic one-size-fits-all slide decks.
           </p>
           <div>
             <button

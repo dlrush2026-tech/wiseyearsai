@@ -73,9 +73,8 @@ export function LearningSections() {
               Practice Real Tasks, Build Real Skills
             </h2>
             <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-              AI becomes easier to understand when you practice using it. Our
-              training focuses on practical tasks that help you build skills you
-              can apply in real situations.
+              AI becomes easier to understand when you practice using it. Our training focuses on
+              practical tasks that help you build skills you can apply in real situations.
             </p>
           </div>
 
@@ -90,9 +89,7 @@ export function LearningSections() {
                   <div className="w-12 h-12 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center mb-5">
                     <Icon className="w-6 h-6 text-gold" />
                   </div>
-                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">
-                    {ex.title}
-                  </h3>
+                  <h3 className="font-serif text-xl font-bold text-gray-900 mb-4">{ex.title}</h3>
                   <ul className="space-y-2.5">
                     {ex.points.map((p, pi) => (
                       <li
@@ -110,8 +107,8 @@ export function LearningSections() {
           </div>
 
           <p className="mt-12 text-center font-serif text-xl sm:text-2xl text-gray-800 italic max-w-2xl mx-auto">
-            &ldquo;You won&apos;t just learn what AI can do. You&apos;ll practice
-            how to use it.&rdquo;
+            &ldquo;You won&apos;t just learn what AI can do. You&apos;ll practice how to use
+            it.&rdquo;
           </p>
         </div>
       </section>
@@ -138,12 +135,8 @@ export function LearningSections() {
                   </div>
                   <Icon className="w-7 h-7 text-gold hidden md:block" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-base text-gray-600 leading-relaxed">
-                  {s.desc}
-                </p>
+                <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">{s.title}</h3>
+                <p className="text-base text-gray-600 leading-relaxed">{s.desc}</p>
               </div>
             );
           })}

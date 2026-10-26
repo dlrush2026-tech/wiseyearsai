@@ -31,17 +31,15 @@ export function Hero({ onOpenBooking }: HeroProps) {
           </h1>
 
           <h2 className="text-xl sm:text-2xl font-serif font-semibold text-white/95">
-            Practical, hands-on AI training for mature adults and today&apos;s
-            workforce.
+            Practical, hands-on AI training for mature adults and today&apos;s workforce.
           </h2>
 
           <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-xl">
-            You don&apos;t need to be a technology expert to benefit from AI.
-            Learn how to use AI for everyday tasks, workplace responsibilities,
-            writing, research, planning, and problem-solving through practical
-            training designed around your needs. Whether you&apos;re just getting
-            started or want to build on your existing skills, you&apos;ll learn
-            at a pace that works for you.
+            You don&apos;t need to be a technology expert to benefit from AI. Learn how to use AI
+            for everyday tasks, workplace responsibilities, writing, research, planning, and
+            problem-solving through practical training designed around your needs. Whether
+            you&apos;re just getting started or want to build on your existing skills, you&apos;ll
+            learn at a pace that works for you.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -62,35 +60,24 @@ export function Hero({ onOpenBooking }: HeroProps) {
           </div>
 
           <p className="pt-2 text-sm text-gray-300">
-            <span className="font-semibold text-gold">Live instruction.</span>{" "}
-            Practical examples. Responsible AI use. No technical background
-            required.
+            <span className="font-semibold text-gold">Live instruction.</span> Practical examples.
+            Responsible AI use. No technical background required.
           </p>
 
           <div className="pt-8 mt-2 grid grid-cols-3 gap-6 border-t border-white/15 max-w-lg">
             <div>
-              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">
-                46+
-              </span>
+              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">46+</span>
               <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">
                 Years Experience
               </p>
             </div>
             <div>
-              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">
-                3
-              </span>
-              <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">
-                Service Paths
-              </p>
+              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">3</span>
+              <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">Service Paths</p>
             </div>
             <div>
-              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">
-                100%
-              </span>
-              <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">
-                Live Training
-              </p>
+              <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">100%</span>
+              <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">Live Training</p>
             </div>
           </div>
         </div>

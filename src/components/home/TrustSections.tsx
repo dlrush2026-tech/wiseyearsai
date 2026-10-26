@@ -51,20 +51,16 @@ export function TrustSections() {
                 Practical AI Training Built Around People
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight">
-                From Confusion to Clarity. From Pain Points to Real AI
-                Solutions.
+                From Confusion to Clarity. From Pain Points to Real AI Solutions.
               </h2>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                With more than 46 years of IT experience, WiseYearsAI brings a
-                practical perspective to helping people understand and use
-                technology. The focus is on making AI easier to understand
-                through clear explanations, relevant examples, and guided
-                practice.
+                With more than 46 years of IT experience, WiseYearsAI brings a practical perspective
+                to helping people understand and use technology. The focus is on making AI easier to
+                understand through clear explanations, relevant examples, and guided practice.
               </p>
               <p className="text-base text-gray-300 leading-relaxed">
-                The goal is to help learners develop useful skills, ask better
-                questions, recognize AI&apos;s limitations, and apply what they
-                learn with greater confidence.
+                The goal is to help learners develop useful skills, ask better questions, recognize
+                AI&apos;s limitations, and apply what they learn with greater confidence.
               </p>
               <div className="pt-2 flex flex-wrap gap-3">
                 <Link
@@ -124,10 +120,7 @@ export function TrustSections() {
               >
                 <div className="space-y-5">
                   <div className="flex items-center justify-between">
-                    <div
-                      className="flex text-gold gap-0.5"
-                      aria-label="5 out of 5 stars"
-                    >
+                    <div className="flex text-gold gap-0.5" aria-label="5 out of 5 stars">
                       {[...Array(5)].map((_, s) => (
                         <Star key={s} className="w-4 h-4 fill-gold" />
                       ))}
@@ -148,9 +141,7 @@ export function TrustSections() {
                     className="w-12 h-12 rounded-full object-cover border border-gold/40"
                   />
                   <div>
-                    <p className="font-serif text-base font-bold text-gray-900">
-                      {t.name}
-                    </p>
+                    <p className="font-serif text-base font-bold text-gray-900">{t.name}</p>
                     <p className="text-sm text-gray-500">{t.role}</p>
                   </div>
                 </figcaption>
@@ -175,9 +166,8 @@ export function TrustSections() {
             Use AI Thoughtfully and Safely
           </h2>
           <p className="text-base text-gray-600 leading-relaxed mb-6">
-            Responsible AI use is part of every training. You&apos;ll learn
-            practical habits to get more useful results while protecting yourself
-            and your organization.
+            Responsible AI use is part of every training. You&apos;ll learn practical habits to get
+            more useful results while protecting yourself and your organization.
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
             {responsiblePoints.map((p, i) => (
@@ -191,9 +181,8 @@ export function TrustSections() {
             ))}
           </ul>
           <p className="mt-6 text-sm text-gray-500 leading-relaxed">
-            We don&apos;t claim every AI tool is private or secure. Training helps
-            you make informed choices about what to share and how to review
-            results.
+            We don&apos;t claim every AI tool is private or secure. Training helps you make informed
+            choices about what to share and how to review results.
           </p>
         </div>
       </section>
