@@ -72,12 +72,6 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           >
             Contact
           </Link>
-          <Link
-            to="/feedback"
-            className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
-          >
-            Feedback
-          </Link>
           <button
             onClick={onOpenBooking}
             className="inline-flex items-center gap-2 rounded-sm bg-[#c9a050] hover:bg-[#b88f3f] px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all shadow-sm hover:shadow active:scale-[0.99] cursor-pointer"
@@ -142,13 +136,6 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
             Contact
-          </Link>
-          <Link
-            to="/feedback"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
-          >
-            Feedback
           </Link>
           <div className="pt-2">
             <button
