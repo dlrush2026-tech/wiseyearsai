@@ -80,9 +80,9 @@ export function TrustSections() {
             <div className="order-1 lg:order-2">
               <div className="relative rounded-2xl overflow-hidden border border-gold/20 shadow-2xl aspect-[4/5] max-w-md mx-auto">
                 <img
-                  src="https://vibe.filesafe.space/1793048052107408140/assets/a49da3d2-0844-4093-84b6-d78ebf6f5aff.png"
+                  src="https://vibe.filesafe.space/1793048052107408140/attachments/c90b739a-803a-4d77-9670-9c33b2e29230.png"
                   alt="Deirdre Dee Rush, founder of Wise Years Ai and certified AI trainer with 46+ years of IT experience"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5">

@@ -50,11 +50,11 @@ function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           {/* Portrait */}
           <div className="md:col-span-5 flex flex-col items-center">
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
+            <div className="relative w-72 h-88 sm:w-80 sm:h-96 rounded-2xl overflow-hidden border-4 border-white shadow-2xl">
               <img
-                src="https://vibe.filesafe.space/1793048052107408140/assets/a49da3d2-0844-4093-84b6-d78ebf6f5aff.png"
+                src="https://vibe.filesafe.space/1793048052107408140/attachments/c90b739a-803a-4d77-9670-9c33b2e29230.png"
                 alt="Deirdre Dee Rush, Certified AI Consultant and Trainer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
