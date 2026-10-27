@@ -55,7 +55,7 @@ function ServicesPage() {
       title: "1-on-1 Coaching & AI Literacy",
       desc: "Tailored coaching for mature adults, caregivers, and individuals who want to build confidence with AI at their own pace — for personal use, everyday tasks, or professional development.",
       image:
-        "https://vibe.filesafe.space/1793048052107408140/assets/282d86a6-0bea-4424-b5c2-01d5b5a6f10c.png",
+        "https://vibe.filesafe.space/1793048052107408140/assets/e445ea8e-03c4-4f3c-b52a-abf5bda1320d.png",
       bullets: [
         "Getting comfortable with ChatGPT and other AI tools",
         "Everyday tasks: writing, research, planning, and organizing",
@@ -72,7 +72,7 @@ function ServicesPage() {
       title: "Live, Hands-on AI Workshops",
       desc: "Interactive, step-by-step sessions using real workplace documents, emails, newsletters, and reports. Tailored to your team's tools, goals, and experience levels.",
       image:
-        "https://vibe.filesafe.space/1793048052107408140/assets/60086ed1-5ad0-4b52-97d0-2894147a4221.png",
+        "https://vibe.filesafe.space/1793048052107408140/assets/388dea06-9e8d-4a92-b67c-6e69db850a56.png",
       bullets: [
         "Practical prompting for everyday workplace communication",
         "Summarizing documents and drafting outreach materials",
@@ -89,7 +89,7 @@ function ServicesPage() {
       title: "Strategic AI Consulting",
       desc: "Align your organization's mission with practical, responsible AI use. Identify where AI helps most and build guidelines your team can trust.",
       image:
-        "https://vibe.filesafe.space/1793048052107408140/assets/532eafcd-0a74-412a-9162-67402402aeae.png",
+        "https://vibe.filesafe.space/1793048052107408140/assets/5dd1d65f-cc0e-41e5-acf4-a43c2c23ed65.png",
       bullets: [
         "Review of repetitive tasks and time drains",
         "Tool selection guidance (ChatGPT, Claude, Copilot, and more)",
