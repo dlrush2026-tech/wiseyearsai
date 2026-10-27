@@ -58,13 +58,17 @@ export function Hero() {
                   className="relative w-16 h-16 rounded-full object-cover border-2 border-gold/60 group-hover:border-gold transition-colors"
                 />
               </div>
-              <div>
+              <div className="flex-1">
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">
                   Multiple Decades
                 </span>
                 <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">
                   of IT Experience
                 </p>
+              </div>
+              <div className="border-l border-white/15 pl-5">
+                <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">100%</span>
+                <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">Live Training</p>
               </div>
             </div>
           </div>
