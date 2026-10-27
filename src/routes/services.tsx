@@ -72,7 +72,7 @@ function ServicesPage() {
       title: "Live, Hands-on AI Workshops",
       desc: "Interactive, step-by-step sessions using real workplace documents, emails, newsletters, and reports. Tailored to your team's tools, goals, and experience levels.",
       image:
-        "https://vibe.filesafe.space/1793048052107408140/assets/388dea06-9e8d-4a92-b67c-6e69db850a56.png",
+        "https://vibe.filesafe.space/1793048052107408140/assets/4afda32e-e095-4b4a-a479-b1e0817c66bc.png",
       bullets: [
         "Practical prompting for everyday workplace communication",
         "Summarizing documents and drafting outreach materials",
