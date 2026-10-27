@@ -49,8 +49,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 60);
 
-  /* Primary warm amber-gold representing Wise Years Ai */
-  --primary: oklch(0.72 0.14 78);
+  /* Primary bronze metallic gold representing Wise Years Ai */
+  --primary: oklch(0.62 0.1 70);
   --primary-foreground: oklch(0.15 0.02 55);
 
   /* Secondary warm muted tones */
@@ -64,11 +64,11 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.88 0.015 85);
   --input: oklch(0.88 0.015 85);
-  --ring: oklch(0.72 0.14 78);
+  --ring: oklch(0.62 0.1 70);
 
   /* Specific exact brand tokens from wiseyearsai.com */
-  --gold: oklch(0.75 0.14 75);
-  --gold-hover: oklch(0.68 0.15 72);
+  --gold: oklch(0.62 0.1 70);
+  --gold-hover: oklch(0.54 0.11 68);
   --dark-bg: oklch(0.18 0.01 60);
   --warm-cream: oklch(0.97 0.025 85);
   --warm-beige: oklch(0.94 0.03 82);

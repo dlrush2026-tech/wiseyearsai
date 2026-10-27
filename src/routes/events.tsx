@@ -123,7 +123,7 @@ function EventsPage() {
             <div className="shrink-0">
               <button
                 onClick={() => openBooking("speaking-keynote")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded bg-[#c9a050] hover:bg-[#b88f3f] px-5 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded bg-gold hover:bg-gold-hover px-5 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow-sm"
               >
                 Register &amp; Save Seat
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -40,7 +40,7 @@ export function ChatWidget({ onOpenBooking }: ChatWidgetProps) {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#c9a050] hover:bg-[#b88f3f] text-black shadow-xl transition-transform hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/80"
+          className="relative flex items-center justify-center w-14 h-14 rounded-full bg-gold hover:bg-gold-hover text-black shadow-xl transition-transform hover:scale-105 active:scale-95 cursor-pointer border-2 border-white/80"
           aria-label="Open chat"
         >
           <MessageSquare className="w-6 h-6 fill-black/20 text-black stroke-[2.2]" />
@@ -88,7 +88,7 @@ export function ChatWidget({ onOpenBooking }: ChatWidgetProps) {
                 <div
                   className={`max-w-[85%] rounded-lg px-3.5 py-2.5 leading-relaxed ${
                     m.sender === "user"
-                      ? "bg-[#c9a050] text-black font-medium"
+                      ? "bg-gold text-black font-medium"
                       : "bg-[#282828] text-gray-200 border border-white/5"
                   }`}
                 >
@@ -122,7 +122,7 @@ export function ChatWidget({ onOpenBooking }: ChatWidgetProps) {
             />
             <button
               type="submit"
-              className="p-2 bg-[#c9a050] hover:bg-[#b88f3f] text-black rounded transition-colors"
+              className="p-2 bg-gold hover:bg-gold-hover text-black rounded transition-colors"
             >
               <Send className="w-4 h-4" />
             </button>
