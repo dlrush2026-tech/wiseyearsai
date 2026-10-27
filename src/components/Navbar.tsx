@@ -64,13 +64,13 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             to="/about"
             className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
           >
-            About
+            About Us
           </Link>
           <Link
             to="/contact"
             className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
           >
-            Contact
+            Contact Us
           </Link>
           <button
             onClick={onOpenBooking}
@@ -128,14 +128,14 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
-            About Dee
+            About Us
           </Link>
           <Link
             to="/contact"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
-            Contact
+            Contact Us
           </Link>
           <div className="pt-2">
             <button
