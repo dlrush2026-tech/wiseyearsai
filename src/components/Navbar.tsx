@@ -67,6 +67,12 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             About
           </Link>
           <Link
+            to="/contact"
+            className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
+          >
+            Contact
+          </Link>
+          <Link
             to="/feedback"
             className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
           >
@@ -129,6 +135,13 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
             About Dee
+          </Link>
+          <Link
+            to="/contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
+          >
+            Contact
           </Link>
           <Link
             to="/feedback"

@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Sparkles, MessageSquare } from "lucide-react";
 
 interface FooterProps {
   onOpenBooking: () => void;
@@ -118,21 +118,21 @@ export function Footer({ onOpenBooking }: FooterProps) {
             </h4>
             <div className="space-y-2.5 text-xs text-gray-400">
               <div className="flex items-center gap-2">
+                <MessageSquare className="w-3.5 h-3.5 text-gold" />
+                <Link
+                  to="/contact"
+                  className="hover:text-gold transition-colors font-medium text-gray-300"
+                >
+                  Send a Message
+                </Link>
+              </div>
+              <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-gold" />
                 <a
                   href="tel:3176956863"
                   className="hover:text-gold transition-colors font-medium text-gray-300"
                 >
                   317-695-6863
-                </a>
-              </div>
-              <div className="flex items-start gap-2">
-                <Mail className="w-3.5 h-3.5 text-gold mt-0.5 shrink-0" />
-                <a
-                  href="mailto:Deirdre.rush@insightfulprecisionsolutions.com"
-                  className="hover:text-gold transition-colors text-gray-300 break-all"
-                >
-                  Deirdre.rush@insightfulprecisionsolutions.com
                 </a>
               </div>
               <div className="flex items-start gap-2 pt-1">
