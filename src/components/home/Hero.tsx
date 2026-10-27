@@ -20,7 +20,8 @@ export function Hero() {
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
-            Learn to Use AI With Confidence
+            Learn to <span className="text-gold-metallic">Use AI</span> With{" "}
+            <span className="text-gold-metallic">Confidence</span>
           </h1>
 
           <h2 className="text-xl sm:text-2xl font-serif font-semibold text-white/95">
