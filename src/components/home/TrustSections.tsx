@@ -54,7 +54,7 @@ export function TrustSections() {
                 From Confusion to Clarity. From Pain Points to Real AI Solutions.
               </h2>
               <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                With more than 46 years of IT experience, WiseYearsAI brings a practical perspective
+                With multiple decades of IT experience, WiseYearsAI brings a practical perspective
                 to helping people understand and use technology. The focus is on making AI easier to
                 understand through clear explanations, relevant examples, and guided practice.
               </p>
@@ -81,7 +81,7 @@ export function TrustSections() {
               <div className="relative rounded-2xl overflow-hidden border border-gold/20 shadow-2xl aspect-[4/5] max-w-md mx-auto">
                 <img
                   src="https://vibe.filesafe.space/1793048052107408140/attachments/c90b739a-803a-4d77-9670-9c33b2e29230.png"
-                  alt="Deirdre Dee Rush, founder of Wise Years Ai and certified AI trainer with 46+ years of IT experience"
+                  alt="Deirdre Dee Rush, founder of Wise Years Ai and certified AI trainer with multiple decades of IT experience"
                   className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
@@ -92,7 +92,7 @@ export function TrustSections() {
                   <p className="font-serif text-lg font-bold text-white">
                     Deirdre &ldquo;Dee&rdquo; Rush
                   </p>
-                  <p className="text-sm text-gray-300">46+ Years IT Expertise</p>
+                  <p className="text-sm text-gray-300">Multiple Decades of IT Expertise</p>
                 </div>
               </div>
             </div>
