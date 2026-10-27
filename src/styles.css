@@ -118,3 +118,18 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Animated glowing ring around the Wise Years Ai owl emblem */
+@keyframes logo-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 6px 2px color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 16px 5px color-mix(in oklab, var(--gold) 65%, transparent);
+  }
+}
+
+.logo-glow {
+  animation: logo-glow 3s ease-in-out infinite;
+}
