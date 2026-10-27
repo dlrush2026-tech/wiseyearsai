@@ -78,7 +78,7 @@ function Index() {
           }),
         }}
       />
-      <Hero onOpenBooking={() => openBooking("discovery")} />
+      <Hero />
       <AudiencePathways onOpenBooking={() => openBooking("live-training")} />
       <LearningSections />
       <TrustSections />

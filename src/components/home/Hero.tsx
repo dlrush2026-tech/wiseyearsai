@@ -1,11 +1,4 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Calendar } from "lucide-react";
-
-interface HeroProps {
-  onOpenBooking: () => void;
-}
-
-export function Hero({ onOpenBooking }: HeroProps) {
+export function Hero() {
   return (
     <section className="relative w-full min-h-[640px] lg:min-h-[720px] flex items-center bg-dark-bg text-white overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -41,23 +34,6 @@ export function Hero({ onOpenBooking }: HeroProps) {
             you&apos;re just getting started or want to build on your existing skills, you&apos;ll
             learn at a pace that works for you.
           </p>
-
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg shadow-md transition-all hover:bg-gold-hover active:scale-95"
-            >
-              Explore AI Training
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <button
-              onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 rounded-md border border-white/40 bg-black/30 px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-xs transition-all hover:border-white hover:bg-black/50 cursor-pointer"
-            >
-              <Calendar className="w-4 h-4" />
-              Book a Training Session
-            </button>
-          </div>
 
           <p className="pt-2 text-sm text-gray-300">
             <span className="font-semibold text-gold">Live instruction.</span> Practical examples.
