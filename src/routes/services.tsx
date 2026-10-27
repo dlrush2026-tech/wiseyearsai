@@ -43,6 +43,7 @@ function ServicesPage() {
     icon: typeof User;
     title: string;
     desc: string;
+    image: string;
     bullets: string[];
     idealFor: string;
     cta: string;
@@ -53,6 +54,8 @@ function ServicesPage() {
       icon: User,
       title: "1-on-1 Coaching & AI Literacy",
       desc: "Tailored coaching for mature adults, caregivers, and individuals who want to build confidence with AI at their own pace — for personal use, everyday tasks, or professional development.",
+      image:
+        "https://vibe.filesafe.space/1793048052107408140/assets/880372f2-746b-44a7-9df9-0f5b3def6214.png",
       bullets: [
         "Getting comfortable with ChatGPT and other AI tools",
         "Everyday tasks: writing, research, planning, and organizing",
@@ -68,6 +71,8 @@ function ServicesPage() {
       icon: Users,
       title: "Live, Hands-on AI Workshops",
       desc: "Interactive, step-by-step sessions using real workplace documents, emails, newsletters, and reports. Tailored to your team's tools, goals, and experience levels.",
+      image:
+        "https://vibe.filesafe.space/1793048052107408140/assets/c2e40fc2-703b-4840-8287-a548313fb242.png",
       bullets: [
         "Practical prompting for everyday workplace communication",
         "Summarizing documents and drafting outreach materials",
@@ -83,6 +88,8 @@ function ServicesPage() {
       icon: Briefcase,
       title: "Strategic AI Consulting",
       desc: "Align your organization's mission with practical, responsible AI use. Identify where AI helps most and build guidelines your team can trust.",
+      image:
+        "https://vibe.filesafe.space/1793048052107408140/assets/7f1a609e-0c8f-460c-93d7-4dc0a04d3edd.png",
       bullets: [
         "Review of repetitive tasks and time drains",
         "Tool selection guidance (ChatGPT, Claude, Copilot, and more)",
@@ -145,41 +152,52 @@ function ServicesPage() {
               <div
                 id={anchor}
                 key={i}
-                className="flex flex-col justify-between rounded-2xl bg-white p-8 border border-gray-200 shadow-sm hover:shadow-lg transition-shadow scroll-mt-28"
+                className="flex flex-col justify-between rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-lg transition-shadow scroll-mt-28 overflow-hidden"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-xl bg-gold/15 border border-gold/30 flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-gold" />
+                  <div className="relative w-full h-48 sm:h-52 overflow-hidden bg-gray-100">
+                    <img
+                      src={svc.image}
+                      alt={svc.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 right-4">
+                      <span className="rounded-full bg-dark-bg/85 backdrop-blur-xs border border-gold/40 text-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow">
+                        {svc.audience}
+                      </span>
                     </div>
-                    <span className="rounded-full bg-gold/10 border border-gold/30 text-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wider">
-                      {svc.audience}
-                    </span>
                   </div>
 
-                  <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3">{svc.title}</h3>
-                  <p className="text-base text-gray-600 leading-relaxed mb-6">{svc.desc}</p>
-
-                  <div className="space-y-3 mb-8">
-                    <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                      What You Will Gain:
-                    </h4>
-                    {svc.bullets.map((b, bi) => (
-                      <div key={bi} className="flex items-start gap-2.5 text-base text-gray-700">
-                        <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
-                        <span>{b}</span>
+                  <div className="p-6 sm:p-8">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-gold/15 border border-gold/30 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-gold" />
                       </div>
-                    ))}
+                      <h3 className="font-serif text-2xl font-bold text-gray-900">{svc.title}</h3>
+                    </div>
+                    <p className="text-base text-gray-600 leading-relaxed mb-6">{svc.desc}</p>
+
+                    <div className="space-y-3 mb-8">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                        What You Will Gain:
+                      </h4>
+                      {svc.bullets.map((b, bi) => (
+                        <div key={bi} className="flex items-start gap-2.5 text-base text-gray-700">
+                          <CheckCircle2 className="w-5 h-5 text-gold shrink-0 mt-0.5" />
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-6 border-t border-gray-100">
+                <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-4 border-t border-gray-100">
                   <p className="text-sm text-gray-500 mb-4">
                     <strong className="text-gray-700">Ideal for:</strong> {svc.idealFor}
                   </p>
                   <button
                     onClick={() => openBooking(svc.calendar)}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold-metallic px-4 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold-metallic px-4 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer shadow-xs"
                   >
                     {svc.cta}
                     <ArrowRight className="w-4 h-4" />
