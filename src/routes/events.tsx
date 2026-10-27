@@ -126,222 +126,233 @@ function EventsPage() {
         </div>
       </section>
 
-      {/* Official Flyer Section (smaller but readable) */}
+      {/* Flyer + Registration Form side by side */}
       <section className="py-12 px-4 sm:px-6 bg-[#f5f2eb]">
-        <div className="max-w-[480px] mx-auto">
-          <img
-            src={EVENT_FLYER_IMAGE}
-            alt="Business and Entrepreneur Readiness flyer: AI Literacy Technology Training, Wednesday afternoons October 14, 21 and 28, 1:30-2:45pm, at The Bradley Education Center, First Baptist Church North Indianapolis, 877 Udell Street"
-            className="w-full rounded-2xl shadow-2xl block border border-gray-200"
-          />
-          <p className="mt-5 text-center text-sm sm:text-base font-semibold text-[#154734]">
-            Enter your contact information below to complete registration.
-          </p>
-        </div>
-      </section>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Flyer */}
+          <div className="w-full max-w-[460px] mx-auto lg:mx-0 lg:sticky lg:top-6">
+            <img
+              src={EVENT_FLYER_IMAGE}
+              alt="Business and Entrepreneur Readiness flyer: AI Literacy Technology Training, Wednesday afternoons October 14, 21 and 28, 1:30-2:45pm, at The Bradley Education Center, First Baptist Church North Indianapolis, 877 Udell Street"
+              className="w-full rounded-2xl shadow-2xl block border border-gray-200"
+            />
+          </div>
 
-      {/* Registration Form — Reserve Your Spot (now directly below the flyer) */}
-      <section className="pb-16 px-4 sm:px-6 max-w-xl mx-auto">
-        <div className="bg-white rounded-2xl border border-gray-200/90 shadow-xl p-6 sm:p-8">
-          {isSubmitted ? (
-            <div className="text-center py-8 space-y-4">
-              <div className="text-5xl">🎉</div>
-              <h3 className="font-serif text-2xl font-bold text-gray-900">You're Registered!</h3>
-              <p className="text-sm text-gray-600 leading-relaxed max-w-md mx-auto">
-                Thank you! Dee has been notified and looks forward to seeing you. Details will be
-                confirmed by email.
-              </p>
-              <button
-                type="button"
-                onClick={() => {
-                  setIsSubmitted(false);
-                  setFormData({
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                    phone: "",
-                    sessions: ["Wed, Oct 14 (1:30-2:45pm)"],
-                    experienceLevel: "Just starting — totally new to AI",
-                    aiTools: "",
-                    learningGoals: "",
-                  });
-                }}
-                className="mt-4 inline-flex items-center justify-center rounded bg-gold-metallic px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-dark-bg cursor-pointer transition-all"
-              >
-                Register Another Person
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="border-b border-gray-100 pb-4">
-                <h2 className="font-serif text-2xl font-bold text-[#154734]">Reserve Your Spot</h2>
-                <p className="text-xs text-gray-500 mt-1">
-                  Free to attend. Let us know where you're starting from so Dee can gear the
-                  training to the room.
-                </p>
-              </div>
+          {/* Registration message + form */}
+          <div>
+            <p className="text-center lg:text-left text-xl sm:text-2xl font-bold text-[#154734] mb-5 leading-snug">
+              Enter your contact information below to complete registration.
+            </p>
+            <div className="bg-white rounded-2xl border border-gray-200/90 shadow-xl p-6 sm:p-8">
+              {isSubmitted ? (
+                <div className="text-center py-8 space-y-4">
+                  <div className="text-5xl">🎉</div>
+                  <h3 className="font-serif text-2xl font-bold text-gray-900">
+                    You're Registered!
+                  </h3>
+                  <p className="text-base text-gray-600 leading-relaxed max-w-md mx-auto">
+                    Thank you! Dee has been notified and looks forward to seeing you. Details will
+                    be confirmed by email.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        phone: "",
+                        sessions: ["Wed, Oct 14 (1:30-2:45pm)"],
+                        experienceLevel: "Just starting — totally new to AI",
+                        aiTools: "",
+                        learningGoals: "",
+                      });
+                    }}
+                    className="mt-4 inline-flex items-center justify-center rounded bg-gold-metallic px-6 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg cursor-pointer transition-all"
+                  >
+                    Register Another Person
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="border-b border-gray-100 pb-4">
+                    <h2 className="font-serif text-2xl font-bold text-[#154734]">
+                      Reserve Your Spot
+                    </h2>
+                    <p className="text-sm text-gray-500 mt-1">
+                      Free to attend. Let us know where you're starting from so Dee can gear the
+                      training to the room.
+                    </p>
+                  </div>
 
-              {errorMessage && (
-                <div className="p-3 rounded bg-red-50 border border-red-200 text-xs text-red-700">
-                  {errorMessage}
-                </div>
-              )}
+                  {errorMessage && (
+                    <div className="p-3 rounded bg-red-50 border border-red-200 text-sm text-red-700">
+                      {errorMessage}
+                    </div>
+                  )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">First Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    placeholder="First name"
-                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">Last Name *</label>
-                  <input
-                    type="text"
-                    required
-                    value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    placeholder="Last name"
-                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="your@email.com"
-                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="(555) 000-0000"
-                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Which session(s) will you attend? *
-                </label>
-                <div className="space-y-1.5 text-xs text-gray-700">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={formData.sessions.includes("Wed, Oct 14 (1:30-2:45pm)")}
-                      onChange={() => toggleSession("Wed, Oct 14 (1:30-2:45pm)")}
-                      className="rounded text-gold focus:ring-gold"
-                    />
-                    <span>Wed, October 14 (1:30 &ndash; 2:45 PM)</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={formData.sessions.includes("Wed, Oct 21 (1:30-2:45pm)")}
-                      onChange={() => toggleSession("Wed, Oct 21 (1:30-2:45pm)")}
-                      className="rounded text-gold focus:ring-gold"
-                    />
-                    <span>Wed, October 21 (1:30 &ndash; 2:45 PM)</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={formData.sessions.includes("Wed, Oct 28 (1:30-2:45pm)")}
-                      onChange={() => toggleSession("Wed, Oct 28 (1:30-2:45pm)")}
-                      className="rounded text-gold focus:ring-gold"
-                    />
-                    <span>Wed, October 28 (1:30 &ndash; 2:45 PM)</span>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1.5">
-                  Your AI Experience Level *
-                </label>
-                <div className="space-y-1.5 text-xs text-gray-700">
-                  {[
-                    "Just starting — totally new to AI",
-                    "Some experience — still learning",
-                    "Comfortable — I use AI tools regularly",
-                  ].map((level) => (
-                    <label key={level} className="flex items-center gap-2 cursor-pointer">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                        First Name *
+                      </label>
                       <input
-                        type="radio"
-                        name="aiExperience"
-                        value={level}
-                        checked={formData.experienceLevel === level}
-                        onChange={(e) =>
-                          setFormData({ ...formData, experienceLevel: e.target.value })
-                        }
-                        className="text-gold focus:ring-gold"
+                        type="text"
+                        required
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                        placeholder="First name"
+                        className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
                       />
-                      <span>{level}</span>
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                        Last Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                        placeholder="Last name"
+                        className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your@email.com"
+                        className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="(555) 000-0000"
+                        className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      Which session(s) will you attend? *
                     </label>
-                  ))}
-                </div>
-              </div>
+                    <div className="space-y-2.5 text-base text-gray-700">
+                      <label className="flex items-center gap-2.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.sessions.includes("Wed, Oct 14 (1:30-2:45pm)")}
+                          onChange={() => toggleSession("Wed, Oct 14 (1:30-2:45pm)")}
+                          className="h-5 w-5 rounded text-gold focus:ring-gold"
+                        />
+                        <span>Wed, October 14 (1:30 &ndash; 2:45 PM)</span>
+                      </label>
+                      <label className="flex items-center gap-2.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.sessions.includes("Wed, Oct 21 (1:30-2:45pm)")}
+                          onChange={() => toggleSession("Wed, Oct 21 (1:30-2:45pm)")}
+                          className="h-5 w-5 rounded text-gold focus:ring-gold"
+                        />
+                        <span>Wed, October 21 (1:30 &ndash; 2:45 PM)</span>
+                      </label>
+                      <label className="flex items-center gap-2.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.sessions.includes("Wed, Oct 28 (1:30-2:45pm)")}
+                          onChange={() => toggleSession("Wed, Oct 28 (1:30-2:45pm)")}
+                          className="h-5 w-5 rounded text-gold focus:ring-gold"
+                        />
+                        <span>Wed, October 28 (1:30 &ndash; 2:45 PM)</span>
+                      </label>
+                    </div>
+                  </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">
-                  What AI tools have you used, if any? (Optional)
-                </label>
-                <textarea
-                  rows={2}
-                  value={formData.aiTools}
-                  onChange={(e) => setFormData({ ...formData, aiTools: e.target.value })}
-                  placeholder="e.g., ChatGPT, Siri, none yet, not sure..."
-                  className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-2">
+                      Your AI Experience Level *
+                    </label>
+                    <div className="space-y-2.5 text-base text-gray-700">
+                      {[
+                        "Just starting — totally new to AI",
+                        "Some experience — still learning",
+                        "Comfortable — I use AI tools regularly",
+                      ].map((level) => (
+                        <label key={level} className="flex items-center gap-2.5 cursor-pointer">
+                          <input
+                            type="radio"
+                            name="aiExperience"
+                            value={level}
+                            checked={formData.experienceLevel === level}
+                            onChange={(e) =>
+                              setFormData({ ...formData, experienceLevel: e.target.value })
+                            }
+                            className="h-5 w-5 text-gold focus:ring-gold"
+                          />
+                          <span>{level}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
 
-              <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">
-                  What do you want to learn at this event? *
-                </label>
-                <textarea
-                  rows={3}
-                  required
-                  value={formData.learningGoals}
-                  onChange={(e) => setFormData({ ...formData, learningGoals: e.target.value })}
-                  placeholder="Tell Dee what would help you most so she can gear the training to you."
-                  className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                      What AI tools have you used, if any? (Optional)
+                    </label>
+                    <textarea
+                      rows={2}
+                      value={formData.aiTools}
+                      onChange={(e) => setFormData({ ...formData, aiTools: e.target.value })}
+                      placeholder="e.g., ChatGPT, Siri, none yet, not sure..."
+                      className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
+                    />
+                  </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded bg-[#181818] hover:bg-black text-gold border border-gold/40 py-3 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow disabled:opacity-50"
-              >
-                {isSubmitting ? "Submitting..." : "Reserve My Spot \u2192"}
-              </button>
+                  <div>
+                    <label className="block text-sm font-bold text-gray-700 mb-1.5">
+                      What do you want to learn at this event? *
+                    </label>
+                    <textarea
+                      rows={3}
+                      required
+                      value={formData.learningGoals}
+                      onChange={(e) => setFormData({ ...formData, learningGoals: e.target.value })}
+                      placeholder="Tell Dee what would help you most so she can gear the training to you."
+                      className="w-full rounded border border-gray-300 px-3 py-3 text-base focus:outline-none focus:ring-2 focus:ring-gold"
+                    />
+                  </div>
 
-              <p className="text-center text-[11px] text-gray-500 pt-1">
-                Prefer to text or email? Text 317-250-0855 or email info@africalogical.com.
-              </p>
-            </form>
-          )}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full rounded bg-[#181818] hover:bg-black text-gold border border-gold/40 py-4 text-base font-bold uppercase tracking-wider transition-all cursor-pointer shadow disabled:opacity-50"
+                  >
+                    {isSubmitting ? "Submitting..." : "Reserve My Spot \u2192"}
+                  </button>
+
+                  <p className="text-center text-sm text-gray-500 pt-1">
+                    Prefer to text or email? Text 317-250-0855 or email info@africalogical.com.
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
