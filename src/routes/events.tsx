@@ -314,7 +314,7 @@ function EventsPage() {
                     learningGoals: "",
                   });
                 }}
-                className="mt-4 inline-flex items-center justify-center rounded bg-gold hover:bg-gold-hover px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-dark-bg cursor-pointer transition-all"
+                className="mt-4 inline-flex items-center justify-center rounded bg-gold-metallic px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-dark-bg cursor-pointer transition-all"
               >
                 Register Another Person
               </button>

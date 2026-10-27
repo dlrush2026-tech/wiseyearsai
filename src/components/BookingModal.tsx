@@ -190,7 +190,7 @@ export function BookingModal({ isOpen, onClose, calendarKey = "discovery" }: Boo
                     setSubmitted(false);
                     onClose();
                   }}
-                  className="rounded bg-gold hover:bg-gold-hover px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer"
+                  className="rounded bg-gold-metallic px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer"
                 >
                   Close
                 </button>
@@ -308,7 +308,7 @@ export function BookingModal({ isOpen, onClose, calendarKey = "discovery" }: Boo
                         setStep(2);
                       }}
                       disabled={!selectedSlot}
-                      className="inline-flex items-center gap-2 rounded bg-gold hover:bg-gold-hover px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 rounded bg-gold-metallic px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       Continue to Your Details
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -446,7 +446,7 @@ export function BookingModal({ isOpen, onClose, calendarKey = "discovery" }: Boo
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="rounded bg-gold hover:bg-gold-hover px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="rounded bg-gold-metallic px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {submitting ? "Submitting…" : "Confirm Appointment"}
                     </button>

@@ -179,7 +179,7 @@ function ServicesPage() {
                   </p>
                   <button
                     onClick={() => openBooking(svc.calendar)}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold px-4 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold-metallic px-4 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer"
                   >
                     {svc.cta}
                     <ArrowRight className="w-4 h-4" />
@@ -204,7 +204,7 @@ function ServicesPage() {
           <div>
             <button
               onClick={() => openBooking("discovery")}
-              className="rounded-md bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover cursor-pointer shadow-md"
+              className="rounded-md bg-gold-metallic px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer shadow-md"
             >
               Book a Consulting Appointment
             </button>

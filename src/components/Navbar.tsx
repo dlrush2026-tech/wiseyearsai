@@ -73,7 +73,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           </Link>
           <button
             onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 rounded-sm bg-gold hover:bg-gold-hover px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all shadow-sm hover:shadow active:scale-[0.99] cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-sm bg-gold-metallic px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all shadow-sm hover:shadow active:scale-[0.99] cursor-pointer"
           >
             <Calendar className="w-3.5 h-3.5" />
             Book a Consulting Appointment
@@ -142,7 +142,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full text-center rounded-sm bg-gold hover:bg-gold-hover px-4 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all"
+              className="w-full text-center rounded-sm bg-gold-metallic px-4 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all"
             >
               Book a Consulting Appointment
             </button>

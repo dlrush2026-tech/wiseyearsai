@@ -49,7 +49,7 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
           <div className="mt-auto pt-2">
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover"
+              className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all"
             >
               Explore Individual Training
               <ArrowRight className="w-4 h-4" />
@@ -87,7 +87,7 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
           <div className="mt-auto pt-2">
             <button
               onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer"
             >
               Discuss Team Training
               <ArrowRight className="w-4 h-4" />

@@ -68,7 +68,7 @@ function FeedbackPage() {
             <div className="pt-2 flex flex-wrap justify-center gap-3">
               <Link
                 to="/"
-                className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover"
+                className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all"
               >
                 Back to Home
               </Link>
@@ -154,7 +154,7 @@ function FeedbackPage() {
               <button
                 type="submit"
                 disabled={!userRating}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold-metallic px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
               >
                 Submit Feedback
               </button>

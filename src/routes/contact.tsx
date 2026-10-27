@@ -132,7 +132,7 @@ function ContactPage() {
                 <div className="pt-2 flex flex-wrap justify-center gap-3">
                   <Link
                     to="/"
-                    className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover"
+                    className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all"
                   >
                     Back to Home
                   </Link>
@@ -261,7 +261,7 @@ function ContactPage() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-sm"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold-metallic px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer shadow-sm"
                   >
                     <Send className="w-4 h-4" />
                     {submitting ? "Sending…" : "Send Message"}
@@ -322,7 +322,7 @@ function ContactPage() {
               </p>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-md bg-gold px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover"
+                className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all"
               >
                 Explore AI Training
                 <ArrowRight className="w-4 h-4" />

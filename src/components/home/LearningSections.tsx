@@ -145,7 +145,7 @@ export function LearningSections() {
         <div className="mt-12 text-center">
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover"
+            className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all"
           >
             Explore AI Training Options
             <ArrowRight className="w-4 h-4" />

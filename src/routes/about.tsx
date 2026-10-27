@@ -127,7 +127,7 @@ function AboutPage() {
             <div className="pt-4 flex flex-wrap gap-4">
               <button
                 onClick={() => setModalOpen(true)}
-                className="rounded bg-gold hover:bg-gold-hover px-6 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow"
+                className="rounded bg-gold-metallic px-6 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow"
               >
                 Book a Session with Dee
               </button>

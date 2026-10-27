@@ -49,8 +49,20 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.02 60);
 
-  /* Primary gold representing Wise Years Ai (#c89b3c) */
-  --primary: oklch(0.712 0.142 85.5);
+  /* Wise Years Ai bronze metallic gold (#c89b3c) */
+  --gold-dark: oklch(0.5449 0.0974 85.06);
+  --gold: oklch(0.7143 0.1226 82.86);
+  --gold-hover: oklch(0.632 0.1226 82.86);
+  --gold-shine: oklch(0.9161 0.0729 90.11);
+  --gold-metallic: linear-gradient(
+    135deg,
+    var(--gold-dark) 0%,
+    var(--gold) 30%,
+    var(--gold-shine) 50%,
+    var(--gold) 70%,
+    var(--gold-dark) 100%
+  );
+  --primary: oklch(0.7143 0.1226 82.86);
   --primary-foreground: oklch(0.16 0.02 55);
 
   /* Secondary warm muted tones */
@@ -64,11 +76,9 @@
   --destructive-foreground: oklch(0.984 0.003 247.858);
   --border: oklch(0.88 0.015 85);
   --input: oklch(0.88 0.015 85);
-  --ring: oklch(0.712 0.142 85.5);
+  --ring: oklch(0.7143 0.1226 82.86);
 
   /* Specific exact brand tokens from wiseyearsai.com */
-  --gold: oklch(0.712 0.142 85.5);
-  --gold-hover: oklch(0.632 0.147 85.5);
   --dark-bg: oklch(0.18 0.01 60);
   --warm-cream: oklch(0.97 0.025 85);
   --warm-beige: oklch(0.94 0.03 82);
@@ -132,4 +142,16 @@
 
 .logo-glow {
   animation: logo-glow 3s ease-in-out infinite;
+}
+
+/* Metallic gold surface for primary CTAs — sweeps a sheen on hover */
+@utility bg-gold-metallic {
+  background-color: var(--gold);
+  background-image: var(--gold-metallic);
+  background-size: 180% 180%;
+  background-position: 0% 0%;
+
+  &:hover {
+    background-position: 100% 100%;
+  }
 }
