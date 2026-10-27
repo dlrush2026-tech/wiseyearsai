@@ -82,7 +82,7 @@ function Index() {
       <AudiencePathways onOpenBooking={() => openBooking("live-training")} />
       <LearningSections />
       <TrustSections />
-      <Faq onOpenBooking={() => openBooking("discovery")} />
+      <Faq />
       <BookingModal
         isOpen={bookingOpen}
         onClose={() => setBookingOpen(false)}

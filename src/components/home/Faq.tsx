@@ -1,6 +1,5 @@
-import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ChevronDown, Calendar } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
@@ -37,85 +36,50 @@ const faqs = [
   },
 ];
 
-interface FaqProps {
-  onOpenBooking: () => void;
-}
-
-export function Faq({ onOpenBooking }: FaqProps) {
+export function Faq() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <>
-      {/* FAQ */}
-      <section className="py-20 sm:py-24 bg-warm-cream border-t border-gray-200/70">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 space-y-4">
-            <span className="text-xs font-bold tracking-[0.2em] text-gold uppercase">
-              Common Questions
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-              Frequently Asked Questions
-            </h2>
-          </div>
-
-          <div className="divide-y divide-gray-200 rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden">
-            {faqs.map((f, i) => {
-              const open = openFaq === i;
-              return (
-                <div key={i}>
-                  <button
-                    onClick={() => setOpenFaq(open ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer focus:outline-none"
-                    aria-expanded={open}
-                    aria-controls={`faq-panel-${i}`}
-                  >
-                    <span className="font-serif text-lg font-semibold text-gray-900">{f.q}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-gold shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {open && (
-                    <div
-                      id={`faq-panel-${i}`}
-                      className="px-6 pb-6 -mt-1 text-base text-gray-600 leading-relaxed"
-                    >
-                      {f.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="py-20 sm:py-24 bg-dark-bg text-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
-            Ready to Build Your AI Confidence?
+    <section className="py-20 sm:py-24 bg-warm-cream border-t border-gray-200/70">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 space-y-4">
+          <span className="text-xs font-bold tracking-[0.2em] text-gold uppercase">
+            Common Questions
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
+            Frequently Asked Questions
           </h2>
-          <p className="text-base sm:text-lg text-gray-300 leading-relaxed max-w-xl mx-auto">
-            Take the next step with practical, live, hands-on training designed around your goals —
-            for yourself or your team.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <button
-              onClick={onOpenBooking}
-              className="inline-flex items-center gap-2 rounded-md bg-gold px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg shadow-md transition-all hover:bg-gold-hover active:scale-95 cursor-pointer"
-            >
-              <Calendar className="w-4 h-4" />
-              Book a Training Session
-            </button>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 rounded-md border border-white/30 px-7 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition-all hover:border-gold hover:text-gold"
-            >
-              Explore AI Training
-            </Link>
-          </div>
         </div>
-      </section>
-    </>
+
+        <div className="divide-y divide-gray-200 rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden">
+          {faqs.map((f, i) => {
+            const open = openFaq === i;
+            return (
+              <div key={i}>
+                <button
+                  onClick={() => setOpenFaq(open ? null : i)}
+                  className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left cursor-pointer focus:outline-none"
+                  aria-expanded={open}
+                  aria-controls={`faq-panel-${i}`}
+                >
+                  <span className="font-serif text-lg font-semibold text-gray-900">{f.q}</span>
+                  <ChevronDown
+                    className={`w-5 h-5 text-gold shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+                  />
+                </button>
+                {open && (
+                  <div
+                    id={`faq-panel-${i}`}
+                    className="px-6 pb-6 -mt-1 text-base text-gray-600 leading-relaxed"
+                  >
+                    {f.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
