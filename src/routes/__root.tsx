@@ -14,6 +14,7 @@ import { BookingModal } from "@/components/BookingModal";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ChatWidget } from "@/components/ChatWidget";
+import type { CalendarKey } from "@/lib/calendar-booking";
 
 function NotFoundComponent() {
   return (
@@ -135,17 +136,27 @@ function RootShell({ children }: { children: ReactNode }) {
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("discovery");
+
+  const openBooking = (key: CalendarKey = "discovery") => {
+    setBookingCalendar(key);
+    setBookingOpen(true);
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col bg-background text-foreground selection:bg-gold/30 selection:text-foreground">
-        <Navbar onOpenBooking={() => setBookingOpen(true)} />
+        <Navbar onOpenBooking={() => openBooking("discovery")} />
         <main className="flex-1">
           <Outlet />
         </main>
-        <Footer onOpenBooking={() => setBookingOpen(true)} />
-        <ChatWidget onOpenBooking={() => setBookingOpen(true)} />
-        <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
+        <Footer onOpenBooking={openBooking} />
+        <ChatWidget onOpenBooking={() => openBooking("discovery")} />
+        <BookingModal
+          isOpen={bookingOpen}
+          onClose={() => setBookingOpen(false)}
+          calendarKey={bookingCalendar}
+        />
       </div>
     </QueryClientProvider>
   );

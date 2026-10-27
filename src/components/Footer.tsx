@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin, Sparkles, MessageSquare } from "lucide-react";
+import { Phone, MapPin, MessageSquare } from "lucide-react";
+import type { CalendarKey } from "@/lib/calendar-booking";
 
 interface FooterProps {
-  onOpenBooking: () => void;
+  onOpenBooking: (calendarKey: CalendarKey) => void;
 }
 
 export function Footer({ onOpenBooking }: FooterProps) {
@@ -81,7 +82,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
             <ul className="space-y-2 text-xs text-gray-400">
               <li>
                 <button
-                  onClick={onOpenBooking}
+                  onClick={() => onOpenBooking("discovery")}
                   className="hover:text-gold transition-colors text-left cursor-pointer"
                 >
                   Book a Session
@@ -89,7 +90,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={onOpenBooking}
+                  onClick={() => onOpenBooking("speaking-keynote")}
                   className="hover:text-gold transition-colors text-left cursor-pointer"
                 >
                   Request Custom Work
@@ -97,7 +98,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
               </li>
               <li>
                 <button
-                  onClick={onOpenBooking}
+                  onClick={() => onOpenBooking("live-training")}
                   className="hover:text-gold transition-colors text-left cursor-pointer"
                 >
                   Custom Training

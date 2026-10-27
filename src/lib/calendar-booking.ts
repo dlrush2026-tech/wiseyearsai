@@ -1,10 +1,27 @@
-// Calendar booking helper — wires the booking modal to the discovery calendar.
+// Calendar booking helper — wires the booking modal to Wise Years Ai calendars.
 // Availability is fetched from the calendar free-slots endpoint; bookings are
 // submitted to the vibe booking endpoint, which handles contact creation,
 // custom fields, and appointment booking in one request.
 
-export const CALENDAR_IDS = {
+export type CalendarKey =
+  "discovery" | "live-training" | "strategic-consulting" | "speaking-keynote" | "mature-workforce";
+
+// discovery = the "let's figure out what you want" Zoom; the other four map to
+// specific service buttons across the site.
+export const CALENDAR_IDS: Record<CalendarKey, string> = {
   discovery: "ukU1JZlaV6k2yG1FdyjY",
+  "live-training": "s6XeuCkIGvnoTK9ZGbIr",
+  "strategic-consulting": "hkGaXXu2U8g18SVJYtLN",
+  "speaking-keynote": "DXP6sO9yYPDDLCfUUpex",
+  "mature-workforce": "Kvlv30MjwcjAqqsjUsvK",
+};
+
+export const CALENDAR_LABELS: Record<CalendarKey, string> = {
+  discovery: "Discovery Zoom — Let's Find Your Starting Point",
+  "live-training": "Live, Hands-on AI Training",
+  "strategic-consulting": "Strategic AI Consulting",
+  "speaking-keynote": "Keynote / Event Workshop",
+  "mature-workforce": "Mature Workforce / Seniors AI",
 };
 
 export const BOOKING_LOCATION_ID = "seWTm9cVveJJiWIJrOdE";
@@ -110,6 +127,19 @@ export const formatSlotTime = (iso: string) => {
       hour: "numeric",
       minute: "2-digit",
     }).format(new Date(iso));
+  } catch {
+    return iso;
+  }
+};
+
+export const formatLongDate = (iso: string) => {
+  try {
+    return new Intl.DateTimeFormat(undefined, {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }).format(new Date(`${iso}T00:00:00`));
   } catch {
     return iso;
   }

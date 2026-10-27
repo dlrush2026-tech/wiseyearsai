@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Calendar, Clock, MapPin, CheckCircle2, ArrowRight } from "lucide-react";
+import { Calendar, Clock, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { BookingModal } from "@/components/BookingModal";
+import type { CalendarKey } from "@/lib/calendar-booking";
 
 export const Route = createFileRoute("/events")({
   head: () => ({
@@ -25,6 +26,12 @@ export const Route = createFileRoute("/events")({
 
 function EventsPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("speaking-keynote");
+
+  const openBooking = (key: CalendarKey = "speaking-keynote") => {
+    setBookingCalendar(key);
+    setModalOpen(true);
+  };
 
   const events = [
     {
@@ -115,7 +122,7 @@ function EventsPage() {
 
             <div className="shrink-0">
               <button
-                onClick={() => setModalOpen(true)}
+                onClick={() => openBooking("speaking-keynote")}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded bg-[#c9a050] hover:bg-[#b88f3f] px-5 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow-sm"
               >
                 Register &amp; Save Seat
@@ -138,7 +145,7 @@ function EventsPage() {
           </p>
           <div className="pt-2">
             <button
-              onClick={() => setModalOpen(true)}
+              onClick={() => openBooking("speaking-keynote")}
               className="rounded bg-[#181818] hover:bg-black px-6 py-3 text-xs font-bold uppercase tracking-wider text-gold border border-gold/40 transition-all cursor-pointer shadow"
             >
               Request Custom Workshop Date
@@ -147,7 +154,11 @@ function EventsPage() {
         </div>
       </section>
 
-      <BookingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <BookingModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        calendarKey={bookingCalendar}
+      />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight, User, Users, Briefcase } from "lucide-react";
 import { useState } from "react";
 import { BookingModal } from "@/components/BookingModal";
+import type { CalendarKey } from "@/lib/calendar-booking";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -30,8 +31,23 @@ export const Route = createFileRoute("/services")({
 
 function ServicesPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("discovery");
 
-  const services = [
+  const openBooking = (key: CalendarKey) => {
+    setBookingCalendar(key);
+    setModalOpen(true);
+  };
+
+  const services: {
+    audience: string;
+    icon: typeof User;
+    title: string;
+    desc: string;
+    bullets: string[];
+    idealFor: string;
+    cta: string;
+    calendar: CalendarKey;
+  }[] = [
     {
       audience: "Individual Learners",
       icon: User,
@@ -45,6 +61,7 @@ function ServicesPage() {
       ],
       idealFor: "Mature adults, caregivers, individual professionals",
       cta: "Book Individual Training",
+      calendar: "mature-workforce",
     },
     {
       audience: "Teams & Organizations",
@@ -59,6 +76,7 @@ function ServicesPage() {
       ],
       idealFor: "Nonprofit staff, community teams, small businesses",
       cta: "Discuss Team Training",
+      calendar: "live-training",
     },
     {
       audience: "Leaders & Decision-Makers",
@@ -73,6 +91,7 @@ function ServicesPage() {
       ],
       idealFor: "Executive directors, operations managers, board leaders",
       cta: "Request a Consultation",
+      calendar: "strategic-consulting",
     },
   ];
 
@@ -159,7 +178,7 @@ function ServicesPage() {
                     <strong className="text-gray-700">Ideal for:</strong> {svc.idealFor}
                   </p>
                   <button
-                    onClick={() => setModalOpen(true)}
+                    onClick={() => openBooking(svc.calendar)}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-md bg-gold px-4 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover cursor-pointer"
                   >
                     {svc.cta}
@@ -184,7 +203,7 @@ function ServicesPage() {
           </p>
           <div>
             <button
-              onClick={() => setModalOpen(true)}
+              onClick={() => openBooking("discovery")}
               className="rounded-md bg-gold px-8 py-3.5 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all hover:bg-gold-hover cursor-pointer shadow-md"
             >
               Book a Consulting Appointment
@@ -193,7 +212,11 @@ function ServicesPage() {
         </div>
       </section>
 
-      <BookingModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <BookingModal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        calendarKey={bookingCalendar}
+      />
     </div>
   );
 }

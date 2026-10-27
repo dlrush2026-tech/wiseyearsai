@@ -6,6 +6,7 @@ import { AudiencePathways } from "@/components/home/AudiencePathways";
 import { LearningSections } from "@/components/home/LearningSections";
 import { TrustSections } from "@/components/home/TrustSections";
 import { Faq } from "@/components/home/Faq";
+import type { CalendarKey } from "@/lib/calendar-booking";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,6 +47,12 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("discovery");
+
+  const openBooking = (key: CalendarKey = "discovery") => {
+    setBookingCalendar(key);
+    setBookingOpen(true);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -71,12 +78,16 @@ function Index() {
           }),
         }}
       />
-      <Hero onOpenBooking={() => setBookingOpen(true)} />
-      <AudiencePathways onOpenBooking={() => setBookingOpen(true)} />
+      <Hero onOpenBooking={() => openBooking("discovery")} />
+      <AudiencePathways onOpenBooking={() => openBooking("live-training")} />
       <LearningSections />
       <TrustSections />
-      <Faq onOpenBooking={() => setBookingOpen(true)} />
-      <BookingModal isOpen={bookingOpen} onClose={() => setBookingOpen(false)} />
+      <Faq onOpenBooking={() => openBooking("discovery")} />
+      <BookingModal
+        isOpen={bookingOpen}
+        onClose={() => setBookingOpen(false)}
+        calendarKey={bookingCalendar}
+      />
     </div>
   );
 }
