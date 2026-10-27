@@ -58,7 +58,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             to="/events"
             className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
           >
-            Upcoming Events
+            Events
           </Link>
           <Link
             to="/about"
@@ -127,7 +127,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
-            Upcoming Events
+            Events
           </Link>
           <Link
             to="/about"
