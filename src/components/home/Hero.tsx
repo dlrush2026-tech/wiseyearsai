@@ -13,10 +13,17 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         <div className="max-w-2xl space-y-6">
-          <div className="inline-flex items-center rounded-full border border-gold/40 bg-gold/15 px-4 py-1.5 backdrop-blur-xs">
-            <span className="text-xs font-bold tracking-[0.18em] uppercase text-gold">
-              Practical AI Training for Real Life and Work
-            </span>
+          <div className="flex items-center gap-3">
+            <img
+              src="https://vibe.filesafe.space/1793048052107408140/attachments/fcaa638e-49b2-49a4-8361-13fa359f817d.png"
+              alt="Wise Years AI Logo"
+              className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-gold/60 shadow-lg shrink-0"
+            />
+            <div className="inline-flex items-center rounded-full border border-gold/40 bg-gold/15 px-4 py-1.5 backdrop-blur-xs">
+              <span className="text-xs font-bold tracking-[0.18em] uppercase text-gold">
+                Practical AI Training for Real Life and Work
+              </span>
+            </div>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">

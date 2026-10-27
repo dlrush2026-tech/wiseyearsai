@@ -14,19 +14,11 @@ export function Footer({ onOpenBooking }: FooterProps) {
           {/* Column 1: Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-9 h-9 rounded-full border border-gold/40 bg-black/40">
-                <svg
-                  className="w-5 h-5 text-gold"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.75"
-                >
-                  <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-                  <path d="M9 18h6" />
-                  <path d="M10 22h4" />
-                </svg>
-              </div>
+              <img
+                src="https://vibe.filesafe.space/1793048052107408140/attachments/fcaa638e-49b2-49a4-8361-13fa359f817d.png"
+                alt="Wise Years AI Logo"
+                className="w-11 h-11 rounded-full object-cover border border-gold/40 shadow-sm"
+              />
               <div className="flex flex-col">
                 <span className="font-serif text-sm font-bold tracking-wide uppercase">
                   Wise Years Ai

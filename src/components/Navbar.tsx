@@ -14,22 +14,11 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 h-20">
         {/* Brand Logo matching original site */}
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-full border border-gold/40 bg-black/40 shadow-inner group-hover:border-gold transition-colors">
-            {/* Lightbulb brain stylized icon */}
-            <svg
-              className="w-6 h-6 text-gold transition-transform duration-300 group-hover:scale-105"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.75"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
-              <path d="M9 18h6" />
-              <path d="M10 22h4" />
-            </svg>
-          </div>
+          <img
+            src="https://vibe.filesafe.space/1793048052107408140/attachments/fcaa638e-49b2-49a4-8361-13fa359f817d.png"
+            alt="Wise Years AI Logo"
+            className="w-12 h-12 rounded-full object-cover border border-gold/40 shadow-sm group-hover:border-gold transition-colors"
+          />
           <div className="flex flex-col">
             <span className="text-white text-base font-semibold tracking-wide uppercase font-serif">
               Wise Years Ai
