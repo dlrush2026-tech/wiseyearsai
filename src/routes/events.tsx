@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { EVENT_FLYER_IMAGE, EVENT_QR_IMAGE } from "@/lib/event-assets";
+import { EVENT_FLYER_IMAGE } from "@/lib/event-assets";
 import { postTrackingEvent, buildTrackingPayload } from "@/lib/form-tracking";
 
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Upcoming Classes & Events | Wise Years Ai" },
+      { title: "Upcoming Classes | Wise Years Ai" },
       {
         name: "description",
         content:
@@ -117,179 +117,31 @@ function EventsPage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white">
-            Upcoming Events
+            Upcoming Classes
           </h1>
           <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed pt-1">
-            Business &amp; Entrepreneur Readiness &mdash; a free AI Literacy Technology Training
-            series presented by Wise Years Ai in partnership with The Grindery.
+            Business & Entrepreneur Readiness &mdash; a free AI Literacy Technology Training series
+            presented by Wise Years Ai in partnership with The Grindery.
           </p>
         </div>
       </section>
 
-      {/* Official Flyer Section */}
+      {/* Official Flyer Section (smaller but readable) */}
       <section className="py-12 px-4 sm:px-6 bg-[#f5f2eb]">
-        <div className="max-w-[720px] mx-auto">
+        <div className="max-w-[480px] mx-auto">
           <img
             src={EVENT_FLYER_IMAGE}
             alt="Business and Entrepreneur Readiness flyer: AI Literacy Technology Training, Wednesday afternoons October 14, 21 and 28, 1:30-2:45pm, at The Bradley Education Center, First Baptist Church North Indianapolis, 877 Udell Street"
             className="w-full rounded-2xl shadow-2xl block border border-gray-200"
           />
+          <p className="mt-5 text-center text-sm sm:text-base font-semibold text-[#154734]">
+            Enter your contact information below to complete registration.
+          </p>
         </div>
       </section>
 
-      {/* What We'll Cover Each Week */}
-      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-xl mx-auto mb-10">
-            <span className="text-[11px] font-bold tracking-widest uppercase text-gold inline-block bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-              Three Wednesday Sessions
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mt-3">
-              What We'll Cover Each Week
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Session 1 */}
-            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-              <div>
-                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
-                  <span className="font-serif text-2xl font-bold leading-none">14</span>
-                </div>
-                <h3 className="font-serif text-lg font-bold text-gray-900">
-                  Session 1 &middot; Wednesday, October 14
-                </h3>
-                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
-                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
-                  <strong className="text-[#154734] block text-sm font-bold">
-                    Better AI Prompts: Create a Bio That Sounds Like You
-                  </strong>
-                  <p>
-                    Learn how to give AI better instructions and introduce yourself with confidence.
-                    Write detailed prompts that explain your goal, audience, and preferred tone.
-                  </p>
-                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
-                    <li>
-                      Create a short bio for business, work, ministry, or community involvement
-                      &mdash; picture included (don't love your photo? We'll use AI to upgrade it)
-                    </li>
-                    <li>
-                      Refine the wording so it accurately reflects your experience and personality
-                    </li>
-                    <li>
-                      Adapt your bio into a LinkedIn headline or a brief personal or business
-                      introduction
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
-                <strong className="text-gold font-bold">Leave with:</strong> A polished short bio or
-                flyer and a reusable prompt and booklet you can use again.
-              </p>
-            </div>
-
-            {/* Session 2 */}
-            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-              <div>
-                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
-                  <span className="font-serif text-2xl font-bold leading-none">21</span>
-                </div>
-                <h3 className="font-serif text-lg font-bold text-gray-900">
-                  Session 2 &middot; Wednesday, October 21
-                </h3>
-                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
-                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
-                  <strong className="text-[#154734] block text-sm font-bold">
-                    From Idea to Presentation: Build Your Message with AI
-                  </strong>
-                  <p>
-                    Turn a business idea, workplace topic, or community project into a clear
-                    presentation plan.
-                  </p>
-                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
-                    <li>Use ChatGPT or Claude to turn your ideas into a five-slide outline</li>
-                    <li>Create clear slide titles and concise talking points</li>
-                    <li>Explore visual styles that fit your audience and message</li>
-                    <li>Draft speaker notes to help you explain your ideas confidently</li>
-                  </ul>
-                </div>
-              </div>
-              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
-                <strong className="text-gold font-bold">Leave with:</strong> Content for five slides
-                and speaker notes, ready to transfer into a presentation tool.
-              </p>
-            </div>
-
-            {/* Session 3 */}
-            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-              <div>
-                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
-                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
-                  <span className="font-serif text-2xl font-bold leading-none">28</span>
-                </div>
-                <h3 className="font-serif text-lg font-bold text-gray-900">
-                  Session 3 &middot; Wednesday, October 28
-                </h3>
-                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
-                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
-                  <strong className="text-[#154734] block text-sm font-bold">
-                    AI As Your Daily Assistant: Organize Your Day
-                  </strong>
-                  <p>
-                    Discover how AI can help you sort information, plan your next steps, and write
-                    follow-up messages.
-                  </p>
-                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
-                    <li>Turn sample emails and notes into a clear action list</li>
-                    <li>Identify deadlines, follow-ups, and tasks that need your attention</li>
-                    <li>Create a daily plan based on your priorities</li>
-                    <li>
-                      Draft a helpful response for a customer, coworker, community contact, or
-                      personal commitment
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
-                <strong className="text-gold font-bold">Leave with:</strong> A reusable daily
-                planning prompt, an organized task list, and a follow-up message draft.{" "}
-                <em className="text-gray-500">
-                  Practice uses sample messages &mdash; connecting your email account is not
-                  required.
-                </em>
-              </p>
-            </div>
-          </div>
-
-          {/* Location Badge */}
-          <div className="mt-8 p-4 rounded-lg bg-[#e7f3ee] border border-[#c4e3d5] text-xs sm:text-sm text-[#154734] text-center font-medium">
-            <strong>Location:</strong> The Bradley Education Center, First Baptist Church North
-            Indianapolis &mdash; 877 Udell Street, Indianapolis, IN
-          </div>
-
-          {/* QR Code */}
-          <div className="text-center mt-8">
-            <div className="inline-flex flex-col items-center gap-2 bg-white border-2 border-gold rounded-xl p-4 shadow-sm">
-              <img
-                src={EVENT_QR_IMAGE}
-                alt="QR code linking to this Upcoming Events registration page"
-                width={130}
-                height={130}
-                className="block"
-              />
-              <p className="text-xs font-semibold text-gray-700 m-0">
-                Scan to open this page &amp; register
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Registration Form */}
-      <section className="py-16 px-4 sm:px-6 max-w-xl mx-auto">
+      {/* Registration Form — Reserve Your Spot (now directly below the flyer) */}
+      <section className="pb-16 px-4 sm:px-6 max-w-xl mx-auto">
         <div className="bg-white rounded-2xl border border-gray-200/90 shadow-xl p-6 sm:p-8">
           {isSubmitted ? (
             <div className="text-center py-8 space-y-4">
@@ -490,6 +342,141 @@ function EventsPage() {
               </p>
             </form>
           )}
+        </div>
+      </section>
+
+      {/* What We'll Cover Each Week */}
+      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <span className="text-[11px] font-bold tracking-widest uppercase text-gold inline-block bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+              Three Wednesday Sessions
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mt-3">
+              What We'll Cover Each Week
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Session 1 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">14</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 1 &middot; Wednesday, October 14
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    Better AI Prompts: Create a Bio That Sounds Like You
+                  </strong>
+                  <p>
+                    Learn how to give AI better instructions and introduce yourself with confidence.
+                    Write detailed prompts that explain your goal, audience, and preferred tone.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>
+                      Create a short bio for business, work, ministry, or community involvement
+                      &mdash; picture included (don't love your photo? We'll use AI to upgrade it)
+                    </li>
+                    <li>
+                      Refine the wording so it accurately reflects your experience and personality
+                    </li>
+                    <li>
+                      Adapt your bio into a LinkedIn headline or a brief personal or business
+                      introduction
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> A polished short bio or
+                flyer and a reusable prompt and booklet you can use again.
+              </p>
+            </div>
+
+            {/* Session 2 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">21</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 2 &middot; Wednesday, October 21
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    From Idea to Presentation: Build Your Message with AI
+                  </strong>
+                  <p>
+                    Turn a business idea, workplace topic, or community project into a clear
+                    presentation plan.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>Use ChatGPT or Claude to turn your ideas into a five-slide outline</li>
+                    <li>Create clear slide titles and concise talking points</li>
+                    <li>Explore visual styles that fit your audience and message</li>
+                    <li>Draft speaker notes to help you explain your ideas confidently</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> Content for five slides
+                and speaker notes, ready to transfer into a presentation tool.
+              </p>
+            </div>
+
+            {/* Session 3 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">28</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 3 &middot; Wednesday, October 28
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    AI As Your Daily Assistant: Organize Your Day
+                  </strong>
+                  <p>
+                    Discover how AI can help you sort information, plan your next steps, and write
+                    follow-up messages.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>Turn sample emails and notes into a clear action list</li>
+                    <li>Identify deadlines, follow-ups, and tasks that need your attention</li>
+                    <li>Create a daily plan based on your priorities</li>
+                    <li>
+                      Draft a helpful response for a customer, coworker, community contact, or
+                      personal commitment
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> A reusable daily
+                planning prompt, an organized task list, and a follow-up message draft.{" "}
+                <em className="text-gray-500">
+                  Practice uses sample messages &mdash; connecting your email account is not
+                  required.
+                </em>
+              </p>
+            </div>
+          </div>
+
+          {/* Location Badge */}
+          <div className="mt-8 p-4 rounded-lg bg-[#e7f3ee] border border-[#c4e3d5] text-xs sm:text-sm text-[#154734] text-center font-medium">
+            <strong>Location:</strong> The Bradley Education Center, First Baptist Church North
+            Indianapolis &mdash; 877 Udell Street, Indianapolis, IN
+          </div>
         </div>
       </section>
     </div>
