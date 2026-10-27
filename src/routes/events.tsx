@@ -1,23 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Calendar, Clock, MapPin, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { BookingModal } from "@/components/BookingModal";
-import type { CalendarKey } from "@/lib/calendar-booking";
+import { EVENT_FLYER_IMAGE, EVENT_QR_IMAGE } from "@/lib/event-assets";
+import { postTrackingEvent, buildTrackingPayload } from "@/lib/form-tracking";
 
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Upcoming Events & Workshops | Wise Years Ai" },
+      { title: "Upcoming Classes & Events | Wise Years Ai" },
       {
         name: "description",
         content:
-          "Join upcoming live hands-on AI workshops, webinars, and community learning sessions led by Dee Rush.",
+          "Business & Entrepreneur Readiness — a free AI Literacy Technology Training series presented by Wise Years Ai in partnership with The Grindery.",
       },
-      { property: "og:title", content: "Upcoming Events — Wise Years Ai" },
+      { property: "og:title", content: "Upcoming Classes — Wise Years Ai" },
       {
         property: "og:description",
         content:
-          "Discover upcoming live AI training sessions, senior digital literacy workshops, and nonprofit webinars.",
+          "Business & Entrepreneur Readiness free AI training series on Wednesday afternoons at The Bradley Education Center.",
       },
     ],
   }),
@@ -25,140 +24,474 @@ export const Route = createFileRoute("/events")({
 });
 
 function EventsPage() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("speaking-keynote");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    sessions: ["Wed, Oct 14 (1:30-2:45pm)"] as string[],
+    experienceLevel: "Just starting — totally new to AI",
+    aiTools: "",
+    learningGoals: "",
+  });
 
-  const openBooking = (key: CalendarKey = "speaking-keynote") => {
-    setBookingCalendar(key);
-    setModalOpen(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const toggleSession = (sessionVal: string) => {
+    setFormData((prev) => {
+      const exists = prev.sessions.includes(sessionVal);
+      return {
+        ...prev,
+        sessions: exists
+          ? prev.sessions.filter((s) => s !== sessionVal)
+          : [...prev.sessions, sessionVal],
+      };
+    });
   };
 
-  const events = [
-    {
-      date: "November 14, 2026",
-      time: "1:00 PM – 2:30 PM EST",
-      format: "Live Interactive Webinar (Zoom)",
-      title: "AI Demystified: Hands-on Prompting for Nonprofits & Mature Adults",
-      desc: "Learn how to use AI to write newsletters, summarize grant guidelines, and organize weekly agendas without stress.",
-      spots: "8 spots remaining",
-      level: "Beginner Friendly",
-    },
-    {
-      date: "December 3, 2026",
-      time: "10:00 AM – 11:30 AM EST",
-      format: "Hybrid (Indianapolis, IN & Online)",
-      title: "Safe AI for Caregivers & Senior Community Coordinators",
-      desc: "A compassionate session focused on data safety, spotting digital misinformation, and using voice AI to assist caregiving routines.",
-      spots: "Open Registration",
-      level: "No Experience Needed",
-    },
-    {
-      date: "January 18, 2027",
-      time: "2:00 PM – 4:00 PM EST",
-      format: "Virtual Intensive Workshop",
-      title: "The 2027 AI Playbook for Small Teams & 501(c)(3) Organizations",
-      desc: "Step-by-step masterclass covering ChatGPT vs Claude vs Copilot. Turn 10 hours of weekly administrative grind into 45 minutes of reviewed output.",
-      spots: "Filling Fast",
-      level: "All Skill Levels",
-    },
-  ];
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage("");
+
+    if (!formData.firstName.trim() || !formData.lastName.trim()) {
+      setErrorMessage("Please enter both your first and last name.");
+      return;
+    }
+    if (!formData.email.trim() || !formData.email.includes("@")) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+    if (formData.sessions.length === 0) {
+      setErrorMessage("Please select at least one session to attend.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const payload = buildTrackingPayload("event-registration", "Upcoming Classes Registration");
+      payload.formData = {
+        name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
+        email: formData.email.trim(),
+        phone: formData.phone.trim(),
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        sessionsAttending: formData.sessions.join(", "),
+        experienceLevel: formData.experienceLevel,
+        aiToolsUsed: formData.aiTools.trim(),
+        learningGoals: formData.learningGoals.trim(),
+      };
+      payload.formLabels = {
+        name: "Full Name",
+        email: "Email Address",
+        phone: "Phone Number",
+        firstName: "First Name",
+        lastName: "Last Name",
+        sessionsAttending: "Which session(s) will you attend?",
+        experienceLevel: "AI Experience Level",
+        aiToolsUsed: "AI Tools Used",
+        learningGoals: "What do you want to learn?",
+      };
+
+      postTrackingEvent(payload);
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Registration error:", err);
+      // Still show confirmation if network glitch so user is not blocked
+      setIsSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#faf8f5]">
-      {/* Header */}
-      <section className="bg-[#181818] text-white py-20 px-4 border-b border-white/10">
-        <div className="mx-auto max-w-4xl text-center space-y-4">
+    <div className="min-h-screen bg-[#faf8f5] text-gray-800">
+      {/* Hero Header */}
+      <section className="bg-[#181818] text-white py-16 px-4 border-b border-white/10 text-center">
+        <div className="mx-auto max-w-3xl space-y-3">
           <div className="inline-block rounded-full bg-gold/15 px-3 py-1 border border-gold/40">
             <span className="text-[11px] font-bold tracking-widest uppercase text-gold">
-              COMMUNITY & LEARNING
+              Fall 2026 &middot; Wednesday Afternoons
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white">
-            Upcoming Workshops &amp; <span className="text-gold italic">Live Events</span>
+            Upcoming Events
           </h1>
-          <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Join Dee Rush for interactive, supportive, live demonstrations where questions are
-            always welcomed and encouragement is guaranteed.
+          <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed pt-1">
+            Business &amp; Entrepreneur Readiness &mdash; a free AI Literacy Technology Training
+            series presented by Wise Years Ai in partnership with The Grindery.
           </p>
         </div>
       </section>
 
-      {/* Events List */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto space-y-6">
-        {events.map((evt, idx) => (
-          <div
-            key={idx}
-            className="rounded-xl bg-white p-6 sm:p-8 border border-gray-200/80 shadow-md hover:shadow-lg transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
-          >
-            <div className="space-y-3 flex-1">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded bg-gold/15 text-gold border border-gold/30 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider">
-                  {evt.level}
-                </span>
-                <span className="text-xs text-gray-500 font-medium">{evt.spots}</span>
+      {/* Official Flyer Section */}
+      <section className="py-12 px-4 sm:px-6 bg-[#f5f2eb]">
+        <div className="max-w-[720px] mx-auto">
+          <img
+            src={EVENT_FLYER_IMAGE}
+            alt="Business and Entrepreneur Readiness flyer: AI Literacy Technology Training, Wednesday afternoons October 14, 21 and 28, 1:30-2:45pm, at The Bradley Education Center, First Baptist Church North Indianapolis, 877 Udell Street"
+            className="w-full rounded-2xl shadow-2xl block border border-gray-200"
+          />
+        </div>
+      </section>
+
+      {/* What We'll Cover Each Week */}
+      <section className="bg-white py-16 px-4 sm:px-6 lg:px-8 border-t border-b border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center max-w-xl mx-auto mb-10">
+            <span className="text-[11px] font-bold tracking-widest uppercase text-gold inline-block bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
+              Three Wednesday Sessions
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mt-3">
+              What We'll Cover Each Week
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Session 1 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">14</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 1 &middot; Wednesday, October 14
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    Better AI Prompts: Create a Bio That Sounds Like You
+                  </strong>
+                  <p>
+                    Learn how to give AI better instructions and introduce yourself with confidence.
+                    Write detailed prompts that explain your goal, audience, and preferred tone.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>
+                      Create a short bio for business, work, ministry, or community involvement
+                      &mdash; picture included (don't love your photo? We'll use AI to upgrade it)
+                    </li>
+                    <li>
+                      Refine the wording so it accurately reflects your experience and personality
+                    </li>
+                    <li>
+                      Adapt your bio into a LinkedIn headline or a brief personal or business
+                      introduction
+                    </li>
+                  </ul>
+                </div>
               </div>
-
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900">
-                {evt.title}
-              </h3>
-
-              <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-gray-600">
-                <span className="flex items-center gap-1 font-semibold text-gray-800">
-                  <Calendar className="w-3.5 h-3.5 text-gold" />
-                  {evt.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-gold" />
-                  {evt.time}
-                </span>
-                <span className="flex items-center gap-1">
-                  <MapPin className="w-3.5 h-3.5 text-gold" />
-                  {evt.format}
-                </span>
-              </div>
-
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed pt-1">{evt.desc}</p>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> A polished short bio or
+                flyer and a reusable prompt and booklet you can use again.
+              </p>
             </div>
 
-            <div className="shrink-0">
+            {/* Session 2 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">21</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 2 &middot; Wednesday, October 21
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    From Idea to Presentation: Build Your Message with AI
+                  </strong>
+                  <p>
+                    Turn a business idea, workplace topic, or community project into a clear
+                    presentation plan.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>Use ChatGPT or Claude to turn your ideas into a five-slide outline</li>
+                    <li>Create clear slide titles and concise talking points</li>
+                    <li>Explore visual styles that fit your audience and message</li>
+                    <li>Draft speaker notes to help you explain your ideas confidently</li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> Content for five slides
+                and speaker notes, ready to transfer into a presentation tool.
+              </p>
+            </div>
+
+            {/* Session 3 */}
+            <div className="bg-[#faf8f5] border border-gray-200 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+              <div>
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">OCT</span>
+                  <span className="font-serif text-2xl font-bold leading-none">28</span>
+                </div>
+                <h3 className="font-serif text-lg font-bold text-gray-900">
+                  Session 3 &middot; Wednesday, October 28
+                </h3>
+                <p className="text-xs text-gray-500 font-semibold mb-3">1:30 &ndash; 2:45 PM</p>
+                <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                  <strong className="text-[#154734] block text-sm font-bold">
+                    AI As Your Daily Assistant: Organize Your Day
+                  </strong>
+                  <p>
+                    Discover how AI can help you sort information, plan your next steps, and write
+                    follow-up messages.
+                  </p>
+                  <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                    <li>Turn sample emails and notes into a clear action list</li>
+                    <li>Identify deadlines, follow-ups, and tasks that need your attention</li>
+                    <li>Create a daily plan based on your priorities</li>
+                    <li>
+                      Draft a helpful response for a customer, coworker, community contact, or
+                      personal commitment
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                <strong className="text-gold font-bold">Leave with:</strong> A reusable daily
+                planning prompt, an organized task list, and a follow-up message draft.{" "}
+                <em className="text-gray-500">
+                  Practice uses sample messages &mdash; connecting your email account is not
+                  required.
+                </em>
+              </p>
+            </div>
+          </div>
+
+          {/* Location Badge */}
+          <div className="mt-8 p-4 rounded-lg bg-[#e7f3ee] border border-[#c4e3d5] text-xs sm:text-sm text-[#154734] text-center font-medium">
+            <strong>Location:</strong> The Bradley Education Center, First Baptist Church North
+            Indianapolis &mdash; 877 Udell Street, Indianapolis, IN
+          </div>
+
+          {/* QR Code */}
+          <div className="text-center mt-8">
+            <div className="inline-flex flex-col items-center gap-2 bg-white border-2 border-gold rounded-xl p-4 shadow-sm">
+              <img
+                src={EVENT_QR_IMAGE}
+                alt="QR code linking to this Upcoming Events registration page"
+                width={130}
+                height={130}
+                className="block"
+              />
+              <p className="text-xs font-semibold text-gray-700 m-0">
+                Scan to open this page &amp; register
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Registration Form */}
+      <section className="py-16 px-4 sm:px-6 max-w-xl mx-auto">
+        <div className="bg-white rounded-2xl border border-gray-200/90 shadow-xl p-6 sm:p-8">
+          {isSubmitted ? (
+            <div className="text-center py-8 space-y-4">
+              <div className="text-5xl">🎉</div>
+              <h3 className="font-serif text-2xl font-bold text-gray-900">You're Registered!</h3>
+              <p className="text-sm text-gray-600 leading-relaxed max-w-md mx-auto">
+                Thank you! Dee has been notified and looks forward to seeing you. Details will be
+                confirmed by email.
+              </p>
               <button
-                onClick={() => openBooking("speaking-keynote")}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded bg-gold hover:bg-gold-hover px-5 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all cursor-pointer shadow-sm"
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    phone: "",
+                    sessions: ["Wed, Oct 14 (1:30-2:45pm)"],
+                    experienceLevel: "Just starting — totally new to AI",
+                    aiTools: "",
+                    learningGoals: "",
+                  });
+                }}
+                className="mt-4 inline-flex items-center justify-center rounded bg-gold hover:bg-gold-hover px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-dark-bg cursor-pointer transition-all"
               >
-                Register &amp; Save Seat
-                <ArrowRight className="w-3.5 h-3.5" />
+                Register Another Person
               </button>
             </div>
-          </div>
-        ))}
-      </section>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="border-b border-gray-100 pb-4">
+                <h2 className="font-serif text-2xl font-bold text-[#154734]">Reserve Your Spot</h2>
+                <p className="text-xs text-gray-500 mt-1">
+                  Free to attend. Let us know where you're starting from so Dee can gear the
+                  training to the room.
+                </p>
+              </div>
 
-      {/* Host Private Training */}
-      <section className="bg-white border-t border-gray-200 py-16 px-4">
-        <div className="mx-auto max-w-4xl text-center space-y-4">
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900">
-            Want a dedicated workshop for your team?
-          </h2>
-          <p className="text-sm sm:text-base text-gray-600 max-w-xl mx-auto">
-            Dee travels across the United States and delivers customized virtual or in-person
-            sessions built around your exact workplace tools.
-          </p>
-          <div className="pt-2">
-            <button
-              onClick={() => openBooking("speaking-keynote")}
-              className="rounded bg-[#181818] hover:bg-black px-6 py-3 text-xs font-bold uppercase tracking-wider text-gold border border-gold/40 transition-all cursor-pointer shadow"
-            >
-              Request Custom Workshop Date
-            </button>
-          </div>
+              {errorMessage && (
+                <div className="p-3 rounded bg-red-50 border border-red-200 text-xs text-red-700">
+                  {errorMessage}
+                </div>
+              )}
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">First Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.firstName}
+                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    placeholder="First name"
+                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">Last Name *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.lastName}
+                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    placeholder="Last name"
+                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="your@email.com"
+                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="(555) 000-0000"
+                    className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                  Which session(s) will you attend? *
+                </label>
+                <div className="space-y-1.5 text-xs text-gray-700">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.sessions.includes("Wed, Oct 14 (1:30-2:45pm)")}
+                      onChange={() => toggleSession("Wed, Oct 14 (1:30-2:45pm)")}
+                      className="rounded text-gold focus:ring-gold"
+                    />
+                    <span>Wed, October 14 (1:30 &ndash; 2:45 PM)</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.sessions.includes("Wed, Oct 21 (1:30-2:45pm)")}
+                      onChange={() => toggleSession("Wed, Oct 21 (1:30-2:45pm)")}
+                      className="rounded text-gold focus:ring-gold"
+                    />
+                    <span>Wed, October 21 (1:30 &ndash; 2:45 PM)</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={formData.sessions.includes("Wed, Oct 28 (1:30-2:45pm)")}
+                      onChange={() => toggleSession("Wed, Oct 28 (1:30-2:45pm)")}
+                      className="rounded text-gold focus:ring-gold"
+                    />
+                    <span>Wed, October 28 (1:30 &ndash; 2:45 PM)</span>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">
+                  Your AI Experience Level *
+                </label>
+                <div className="space-y-1.5 text-xs text-gray-700">
+                  {[
+                    "Just starting — totally new to AI",
+                    "Some experience — still learning",
+                    "Comfortable — I use AI tools regularly",
+                  ].map((level) => (
+                    <label key={level} className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="aiExperience"
+                        value={level}
+                        checked={formData.experienceLevel === level}
+                        onChange={(e) =>
+                          setFormData({ ...formData, experienceLevel: e.target.value })
+                        }
+                        className="text-gold focus:ring-gold"
+                      />
+                      <span>{level}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">
+                  What AI tools have you used, if any? (Optional)
+                </label>
+                <textarea
+                  rows={2}
+                  value={formData.aiTools}
+                  onChange={(e) => setFormData({ ...formData, aiTools: e.target.value })}
+                  placeholder="e.g., ChatGPT, Siri, none yet, not sure..."
+                  className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">
+                  What do you want to learn at this event? *
+                </label>
+                <textarea
+                  rows={3}
+                  required
+                  value={formData.learningGoals}
+                  onChange={(e) => setFormData({ ...formData, learningGoals: e.target.value })}
+                  placeholder="Tell Dee what would help you most so she can gear the training to you."
+                  className="w-full rounded border border-gray-300 px-3 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-gold"
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded bg-[#181818] hover:bg-black text-gold border border-gold/40 py-3 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer shadow disabled:opacity-50"
+              >
+                {isSubmitting ? "Submitting..." : "Reserve My Spot \u2192"}
+              </button>
+
+              <p className="text-center text-[11px] text-gray-500 pt-1">
+                Prefer to text or email? Text 317-250-0855 or email info@africalogical.com.
+              </p>
+            </form>
+          )}
         </div>
       </section>
-
-      <BookingModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        calendarKey={bookingCalendar}
-      />
     </div>
   );
 }
