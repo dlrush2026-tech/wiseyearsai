@@ -29,8 +29,8 @@ function EventsPage() {
     lastName: "",
     email: "",
     phone: "",
-    sessions: ["Wed, Oct 14 (1:30-2:45pm)"] as string[],
-    experienceLevel: "Just starting — totally new to AI",
+    sessions: [] as string[],
+    experienceLevel: "",
     aiTools: "",
     learningGoals: "",
   });
@@ -65,6 +65,10 @@ function EventsPage() {
     }
     if (formData.sessions.length === 0) {
       setErrorMessage("Please select at least one session to attend.");
+      return;
+    }
+    if (!formData.experienceLevel.trim()) {
+      setErrorMessage("Please select your AI experience level.");
       return;
     }
 
@@ -163,8 +167,8 @@ function EventsPage() {
                         lastName: "",
                         email: "",
                         phone: "",
-                        sessions: ["Wed, Oct 14 (1:30-2:45pm)"],
-                        experienceLevel: "Just starting — totally new to AI",
+                        sessions: [],
+                        experienceLevel: "",
                         aiTools: "",
                         learningGoals: "",
                       });
