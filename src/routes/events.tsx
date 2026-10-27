@@ -6,13 +6,13 @@ import { BookingModal } from "@/components/BookingModal";
 export const Route = createFileRoute("/events")({
   head: () => ({
     meta: [
-      { title: "Upcoming Events & Workshops | Insightful Precision Solutions" },
+      { title: "Upcoming Events & Workshops | Wise Years Ai" },
       {
         name: "description",
         content:
           "Join upcoming live hands-on AI workshops, webinars, and community learning sessions led by Dee Rush.",
       },
-      { property: "og:title", content: "Upcoming Events — Insightful Precision Solutions" },
+      { property: "og:title", content: "Upcoming Events — Wise Years Ai" },
       {
         property: "og:description",
         content:

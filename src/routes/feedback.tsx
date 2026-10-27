@@ -6,15 +6,14 @@ import { postTrackingEvent, buildTrackingPayload } from "@/lib/form-tracking";
 export const Route = createFileRoute("/feedback")({
   head: () => ({
     meta: [
-      { title: "Share Your Feedback | Insightful Precision Solutions" },
+      { title: "Share Your Feedback | Wise Years Ai" },
       {
         name: "description",
-        content:
-          "Rate your experience with Insightful Precision Solutions and share feedback on your AI training.",
+        content: "Rate your experience with Wise Years Ai and share feedback on your AI training.",
       },
       {
         property: "og:title",
-        content: "Share Your Feedback — Insightful Precision Solutions",
+        content: "Share Your Feedback — Wise Years Ai",
       },
       {
         property: "og:description",
@@ -47,8 +46,8 @@ function FeedbackPage() {
             How Are We Doing?
           </h1>
           <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-            Thank you for training with Insightful Precision Solutions. Share how your experience
-            went so we can keep improving.
+            Thank you for training with Wise Years Ai. Share how your experience went so we can keep
+            improving.
           </p>
         </div>
       </section>

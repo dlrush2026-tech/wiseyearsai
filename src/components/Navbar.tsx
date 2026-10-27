@@ -32,7 +32,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           </div>
           <div className="flex flex-col">
             <span className="text-white text-base font-semibold tracking-wide uppercase font-serif">
-              Insightful Precision Solutions
+              Wise Years Ai
             </span>
             <span className="text-[10px] tracking-[0.2em] uppercase text-gold font-medium">
               CLARITY • CONFIDENCE • SOLUTIONS

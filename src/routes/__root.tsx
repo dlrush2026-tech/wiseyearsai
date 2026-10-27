@@ -80,14 +80,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Wise Years AI | Insightful Precision Solutions" },
+      { title: "Wise Years Ai | Practical AI Training for Real Life and Work" },
       {
         name: "description",
         content:
           "Practical, live, hands-on AI training for mature adults, mature workforce professionals, nonprofit teams, caregivers, and community organizations.",
       },
-      { name: "author", content: "Insightful Precision Solutions" },
-      { property: "og:title", content: "Insightful Precision Solutions — AI Made Simple" },
+      { name: "author", content: "Wise Years Ai" },
+      {
+        property: "og:title",
+        content: "Wise Years Ai — Practical AI Training for Real Life and Work",
+      },
       {
         property: "og:description",
         content:

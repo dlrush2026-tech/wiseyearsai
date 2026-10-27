@@ -7,7 +7,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       {
-        title: "AI Training Services — Individual & Team | Insightful Precision Solutions",
+        title: "AI Training Services — Individual & Team | Wise Years Ai",
       },
       {
         name: "description",
@@ -16,7 +16,7 @@ export const Route = createFileRoute("/services")({
       },
       {
         property: "og:title",
-        content: "AI Training Services — Insightful Precision Solutions",
+        content: "AI Training Services — Wise Years Ai",
       },
       {
         property: "og:description",

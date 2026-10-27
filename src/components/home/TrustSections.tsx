@@ -81,7 +81,7 @@ export function TrustSections() {
               <div className="relative rounded-2xl overflow-hidden border border-gold/20 shadow-2xl aspect-[4/5] max-w-md mx-auto">
                 <img
                   src="https://vibe.filesafe.space/1793048052107408140/assets/a49da3d2-0844-4093-84b6-d78ebf6f5aff.png"
-                  alt="Deirdre Dee Rush, founder of Insightful Precision Solutions and certified AI trainer with 46+ years of IT experience"
+                  alt="Deirdre Dee Rush, founder of Wise Years Ai and certified AI trainer with 46+ years of IT experience"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />

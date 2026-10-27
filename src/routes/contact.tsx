@@ -7,14 +7,14 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       {
-        title: "Contact Dee — Practical AI Training | Insightful Precision Solutions",
+        title: "Contact Dee — Practical AI Training | Wise Years Ai",
       },
       {
         name: "description",
         content:
           "Send Dee Rush a message about practical AI training for yourself, your team, or your organization. Live, hands-on, responsible AI instruction.",
       },
-      { property: "og:title", content: "Contact Insightful Precision Solutions" },
+      { property: "og:title", content: "Contact Wise Years Ai" },
       {
         property: "og:description",
         content:

@@ -28,7 +28,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
               </div>
               <div className="flex flex-col">
                 <span className="font-serif text-sm font-bold tracking-wide uppercase">
-                  Insightful Precision Solutions
+                  Wise Years Ai
                 </span>
                 <span className="text-[9px] tracking-[0.2em] text-gold uppercase font-medium">
                   Wise Years AI
@@ -149,7 +149,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
 
         {/* Bottom copyright line */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-          <p>© {new Date().getFullYear()} Insightful Precision Solutions. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Wise Years Ai. All rights reserved.</p>
           <p className="text-gray-400 font-medium tracking-wide">
             Clarity • Confidence • Solutions
           </p>

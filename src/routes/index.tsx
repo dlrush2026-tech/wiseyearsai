@@ -55,8 +55,8 @@ function Index() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "EducationalOrganization",
-            name: "Insightful Precision Solutions",
-            alternateName: "Wise Years AI",
+            name: "Wise Years Ai",
+            alternateName: "Insightful Precision Solutions",
             description:
               "Practical, hands-on AI training for mature adults and workforce professionals.",
             url: "https://wise-years-clone.vibepreview.app/",

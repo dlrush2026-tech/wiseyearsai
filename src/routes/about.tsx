@@ -6,13 +6,13 @@ import { BookingModal } from "@/components/BookingModal";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Dee Rush — 46+ Years IT Expertise | Insightful Precision Solutions" },
+      { title: "About Dee Rush — 46+ Years IT Expertise | Wise Years Ai" },
       {
         name: "description",
         content:
           "Meet Deirdre (Dee) Rush, certified AI consultant, coach, and trainer bringing 46+ years of tech expertise to mature adults and nonprofit leaders.",
       },
-      { property: "og:title", content: "About Dee Rush — Insightful Precision Solutions" },
+      { property: "og:title", content: "About Dee Rush — Wise Years Ai" },
       {
         property: "og:description",
         content: "Making AI approachable, practical, safe, and encouraging for everyone.",
@@ -93,9 +93,9 @@ function AboutPage() {
 
             <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
               Instead of technical jargon or overwhelming theoretical equations, Dee founded{" "}
-              <strong className="text-gray-900">Insightful Precision Solutions</strong> to deliver
-              compassionate, hands-on guidance. She teaches practical prompts, workflow automation,
-              and data safety protocols that empower you on day one.
+              <strong className="text-gray-900">Wise Years Ai</strong> to deliver compassionate,
+              hands-on guidance. She teaches practical prompts, workflow automation, and data safety
+              protocols that empower you on day one.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">

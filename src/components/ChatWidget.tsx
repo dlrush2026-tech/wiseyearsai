@@ -11,7 +11,7 @@ export function ChatWidget({ onOpenBooking }: ChatWidgetProps) {
   const [messages, setMessages] = useState<Array<{ sender: "bot" | "user"; text: string }>>([
     {
       sender: "bot",
-      text: "Hello! Welcome to Insightful Precision Solutions. How can Dee assist your team with practical AI training or consulting today?",
+      text: "Hello! Welcome to Wise Years Ai. How can Dee assist your team with practical AI training or consulting today?",
     },
   ]);
 
