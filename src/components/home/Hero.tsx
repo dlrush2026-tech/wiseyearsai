@@ -42,22 +42,22 @@ export function Hero() {
           </p>
 
           <div className="pt-8 mt-2 max-w-lg">
-            <div className="group relative w-16 h-16 mb-5">
-              <span
-                aria-hidden="true"
-                className="absolute -inset-3 rounded-full bg-gold/0 blur-lg transition-colors duration-500 group-hover:bg-gold/25"
-              />
-              <span
-                aria-hidden="true"
-                className="logo-glow absolute -inset-1 rounded-full border-2 border-gold/50"
-              />
-              <img
-                src="https://vibe.filesafe.space/1793048052107408140/attachments/fcaa638e-49b2-49a4-8361-13fa359f817d.png"
-                alt="Wise Years AI Logo"
-                className="relative w-16 h-16 rounded-full object-cover border-2 border-gold/60 group-hover:border-gold transition-colors"
-              />
-            </div>
-            <div className="grid grid-cols-2 gap-6 border-t border-white/15 pt-6">
+            <div className="flex items-center gap-5 border-t border-white/15 pt-6">
+              <div className="group relative w-16 h-16 shrink-0">
+                <span
+                  aria-hidden="true"
+                  className="absolute -inset-3 rounded-full bg-gold/0 blur-lg transition-colors duration-500 group-hover:bg-gold/25"
+                />
+                <span
+                  aria-hidden="true"
+                  className="logo-glow absolute -inset-1 rounded-full border-2 border-gold/50"
+                />
+                <img
+                  src="https://vibe.filesafe.space/1793048052107408140/attachments/fcaa638e-49b2-49a4-8361-13fa359f817d.png"
+                  alt="Wise Years AI Logo"
+                  className="relative w-16 h-16 rounded-full object-cover border-2 border-gold/60 group-hover:border-gold transition-colors"
+                />
+              </div>
               <div>
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">
                   Multiple Decades
@@ -65,10 +65,6 @@ export function Hero() {
                 <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">
                   of IT Experience
                 </p>
-              </div>
-              <div>
-                <span className="font-serif text-2xl sm:text-3xl font-bold text-gold">100%</span>
-                <p className="mt-1 text-xs text-gray-300 uppercase tracking-wider">Live Training</p>
               </div>
             </div>
           </div>
