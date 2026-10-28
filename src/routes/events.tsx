@@ -512,19 +512,27 @@ function EventsPage() {
                   <h3 className="font-serif text-xl font-bold text-gray-900">
                     AI Tool Setup &middot; Saturday, November 7
                   </h3>
-                  <p className="text-sm text-gray-500 font-semibold mt-1">9:30 &ndash; 10:00 AM</p>
+                  <p className="text-sm text-gray-500 font-semibold mt-1">
+                    Setup 9:30 &ndash; 10:00 AM &middot; Class 10:00 &ndash; 11:45 AM
+                  </p>
                   <div className="border-t border-dashed border-gray-300 pt-3 mt-3 space-y-2.5 text-sm text-gray-700 leading-relaxed">
                     <strong className="text-[#154734] block text-base font-bold">
-                      Get Your AI Tools Installed &amp; Ready Before Class Begins
+                      Get Your AI Tools Installed & Ready Before Class Begins
                     </strong>
                     <p>
-                      Arrive a little early and we&rsquo;ll get the AI tools we use in class
-                      installed and set up on your device &mdash; step by step, together. No
-                      experience needed. This free setup session is held prior to class beginning so
-                      you&rsquo;re ready to learn.
+                      The AI tools we&rsquo;ll use in class are <strong>ChatGPT</strong> and/or{" "}
+                      <strong>Claude</strong>. Please have them loaded on your device before you
+                      arrive &mdash; or plan to load them during the 9:30&ndash;10:00 AM setup time
+                      and we&rsquo;ll walk through it together, step by step. No experience needed.
                     </p>
                     <ul className="space-y-1.5 list-disc pl-5 text-gray-600">
-                      <li>Hands-on help installing the AI tools we&rsquo;ll use in class</li>
+                      <li>
+                        <strong className="text-gray-800">Setup:</strong> 9:30 &ndash; 10:00 AM
+                        (install ChatGPT and/or Claude with hands-on help)
+                      </li>
+                      <li>
+                        <strong className="text-gray-800">Class:</strong> 10:00 &ndash; 11:45 AM
+                      </li>
                       <li>
                         <strong className="text-gray-800">Laptop and/or tablet required</strong> to
                         participate
