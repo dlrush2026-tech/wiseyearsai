@@ -288,14 +288,11 @@ function EventsPage() {
                       <label className="flex items-center gap-2.5 cursor-pointer">
                         <input
                           type="checkbox"
-                          checked={formData.sessions.includes("Sat, Nov 7 (AI Tool Setup - Free)")}
-                          onChange={() => toggleSession("Sat, Nov 7 (AI Tool Setup - Free)")}
+                          checked={formData.sessions.includes("Sat, Nov 7 (AI Tool Setup)")}
+                          onChange={() => toggleSession("Sat, Nov 7 (AI Tool Setup)")}
                           className="h-5 w-5 rounded text-gold focus:ring-gold"
                         />
-                        <span>
-                          Sat, November 7 &mdash; AI Tool Setup{" "}
-                          <span className="text-gold font-bold">(Free)</span>
-                        </span>
+                        <span>Sat, November 7 &mdash; AI Tool Setup</span>
                       </label>
                     </div>
                   </div>
