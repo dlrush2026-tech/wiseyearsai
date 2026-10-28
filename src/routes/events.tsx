@@ -137,7 +137,7 @@ function EventsPage() {
           <div className="w-full max-w-[460px] mx-auto lg:mx-0 lg:sticky lg:top-6">
             <img
               src={EVENT_FLYER_IMAGE}
-              alt="Business and Entrepreneur Readiness flyer: AI Literacy Technology Training, Wednesday afternoons October 14, 21 and 28, 1:30-2:45pm, at The Bradley Education Center, First Baptist Church North Indianapolis, 877 Udell Street"
+              alt="Business and Entrepreneur Readiness flyer: Fall 2026 at The Grindery, Saturday November 7, 2026, 877 Udell Street, Indianapolis, IN. Class Schedule: 9:30 AM - 10:00 AM AI Tool Setup (ChatGPT and/or Claude), 10:00 AM - 11:45 AM AI Literacy Technology Training taught by Deirdre 'Dee' Rush, Certified AI Consultant. Bring laptops or tablets. Text 317-250-0855 to inform The Grindery you have registered."
               className="w-full rounded-2xl shadow-2xl block border border-gray-200"
             />
           </div>
