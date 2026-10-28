@@ -117,7 +117,7 @@ function EventsPage() {
         <div className="mx-auto max-w-3xl space-y-3">
           <div className="inline-block rounded-full bg-gold/15 px-3 py-1 border border-gold/40">
             <span className="text-[11px] font-bold tracking-widest uppercase text-gold">
-              Fall 2026 &middot; Wednesday Afternoons
+              Fall 2026 &middot; October &ndash; November
             </span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white">
@@ -288,14 +288,12 @@ function EventsPage() {
                       <label className="flex items-center gap-2.5 cursor-pointer">
                         <input
                           type="checkbox"
-                          checked={formData.sessions.includes(
-                            "Fri, Nov 7 (Community Class - Free)",
-                          )}
-                          onChange={() => toggleSession("Fri, Nov 7 (Community Class - Free)")}
+                          checked={formData.sessions.includes("Sat, Nov 7 (AI Tool Setup - Free)")}
+                          onChange={() => toggleSession("Sat, Nov 7 (AI Tool Setup - Free)")}
                           className="h-5 w-5 rounded text-gold focus:ring-gold"
                         />
                         <span>
-                          Fri, November 7 &mdash; Community Class{" "}
+                          Sat, November 7 &mdash; AI Tool Setup{" "}
                           <span className="text-gold font-bold">(Free)</span>
                         </span>
                       </label>
@@ -489,48 +487,6 @@ function EventsPage() {
                     </li>
                   </ul>
                 </div>
-
-                {/* Session 4 — Community Class */}
-                <div className="bg-[#faf8f5] border-2 border-gold/50 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                  <div>
-                    <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
-                      <span className="text-[10px] tracking-widest uppercase font-semibold">
-                        NOV
-                      </span>
-                      <span className="font-serif text-2xl font-bold leading-none">7</span>
-                    </div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="font-serif text-lg font-bold text-gray-900">
-                        Community Class &middot; Friday, November 7
-                      </h3>
-                    </div>
-                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-dark-bg bg-gold rounded-full px-2.5 py-0.5 mb-3">
-                      Free &middot; Open to the Community
-                    </span>
-                    <p className="text-xs text-gray-500 font-semibold mb-3">Time & location TBD</p>
-                    <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
-                      <strong className="text-[#154734] block text-sm font-bold">
-                        Next Steps With AI &mdash; Shaped by You
-                      </strong>
-                      <p>
-                        The agenda for this free community session will be determined from the
-                        October 28 class &mdash; we'll build on what attendees want to explore next.
-                        Come with your questions and real-world tasks, and we'll work through them
-                        together.
-                      </p>
-                      <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
-                        <li>Open to everyone in the community &mdash; no experience needed</li>
-                        <li>Hands-on practice with practical, everyday AI tasks</li>
-                        <li>Bring your own questions, projects, or ideas to work through</li>
-                        <li>Responsible AI use and privacy guidance included</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
-                    <strong className="text-gold font-bold">Leave with:</strong> Practical next
-                    steps you can use right away, and a clear path for continuing your AI learning.
-                  </p>
-                </div>
               </div>
               <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
                 <strong className="text-gold font-bold">Leave with:</strong> A reusable daily
@@ -540,6 +496,45 @@ function EventsPage() {
                   required.
                 </em>
               </p>
+            </div>
+
+            {/* Session 4 — AI Tool Setup (Free, Saturday) */}
+            <div className="bg-[#faf8f5] border-2 border-gold/50 rounded-xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow md:col-span-3">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-5">
+                <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-16 h-16 shadow-sm flex-shrink-0 self-start">
+                  <span className="text-[10px] tracking-widest uppercase font-semibold">NOV</span>
+                  <span className="font-serif text-2xl font-bold leading-none">7</span>
+                </div>
+                <div className="flex-1">
+                  <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-dark-bg bg-gold rounded-full px-2.5 py-0.5 mb-2">
+                    Free &middot; Open to the Community
+                  </span>
+                  <h3 className="font-serif text-xl font-bold text-gray-900">
+                    AI Tool Setup &middot; Saturday, November 7
+                  </h3>
+                  <p className="text-sm text-gray-500 font-semibold mt-1">9:30 &ndash; 10:00 AM</p>
+                  <div className="border-t border-dashed border-gray-300 pt-3 mt-3 space-y-2.5 text-sm text-gray-700 leading-relaxed">
+                    <strong className="text-[#154734] block text-base font-bold">
+                      Get Your AI Tools Installed &amp; Ready Before Class Begins
+                    </strong>
+                    <p>
+                      Arrive a little early and we&rsquo;ll get the AI tools we use in class
+                      installed and set up on your device &mdash; step by step, together. No
+                      experience needed. This free setup session is held prior to class beginning so
+                      you&rsquo;re ready to learn.
+                    </p>
+                    <ul className="space-y-1.5 list-disc pl-5 text-gray-600">
+                      <li>Hands-on help installing the AI tools we&rsquo;ll use in class</li>
+                      <li>
+                        <strong className="text-gray-800">Laptop and/or tablet required</strong> to
+                        participate
+                      </li>
+                      <li>Free and open to everyone in the community</li>
+                      <li>Responsible AI use and privacy guidance included</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
