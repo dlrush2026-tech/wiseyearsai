@@ -185,13 +185,9 @@ function EventsPage() {
                       Reserve Your Spot
                     </h2>
                     <p className="text-sm text-gray-500 mt-1">
-                      Free to attend. Let us know where you're starting from so Dee can gear the
-                      training to the room.
+                      Let us know where you're starting from so Dee can gear the training to the
+                      room.
                     </p>
-                    <div className="mt-3 rounded-lg bg-[#e7f3ee] border border-[#c4e3d5] px-3 py-2.5 text-sm font-semibold text-[#154734] leading-relaxed">
-                      <span className="block">9:30 &ndash; 10:00 AM &mdash; AI Tool Setup</span>
-                      <span className="block">10:00 &ndash; 11:45 AM &mdash; Class</span>
-                    </div>
                   </div>
 
                   {errorMessage && (
