@@ -188,6 +188,10 @@ function EventsPage() {
                       Free to attend. Let us know where you're starting from so Dee can gear the
                       training to the room.
                     </p>
+                    <div className="mt-3 rounded-lg bg-[#e7f3ee] border border-[#c4e3d5] px-3 py-2.5 text-sm font-semibold text-[#154734] leading-relaxed">
+                      <span className="block">9:30 &ndash; 10:00 AM &mdash; AI Tool Setup</span>
+                      <span className="block">10:00 &ndash; 11:45 AM &mdash; Class</span>
+                    </div>
                   </div>
 
                   {errorMessage && (
@@ -377,7 +381,7 @@ function EventsPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center max-w-xl mx-auto mb-10">
             <span className="text-[11px] font-bold tracking-widest uppercase text-gold inline-block bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-              Three Wednesday Sessions
+              Fall 2026 Classes sponsored by TheGrindery.org
             </span>
             <h2 className="text-2xl sm:text-4xl font-serif font-bold text-gray-900 mt-3">
               What We'll Cover Each Week
