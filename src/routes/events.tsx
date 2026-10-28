@@ -285,6 +285,20 @@ function EventsPage() {
                         />
                         <span>Wed, October 28 (1:30 &ndash; 2:45 PM)</span>
                       </label>
+                      <label className="flex items-center gap-2.5 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={formData.sessions.includes(
+                            "Fri, Nov 7 (Community Class - Free)",
+                          )}
+                          onChange={() => toggleSession("Fri, Nov 7 (Community Class - Free)")}
+                          className="h-5 w-5 rounded text-gold focus:ring-gold"
+                        />
+                        <span>
+                          Fri, November 7 &mdash; Community Class{" "}
+                          <span className="text-gold font-bold">(Free)</span>
+                        </span>
+                      </label>
                     </div>
                   </div>
 
@@ -474,6 +488,48 @@ function EventsPage() {
                       personal commitment
                     </li>
                   </ul>
+                </div>
+
+                {/* Session 4 — Community Class */}
+                <div className="bg-[#faf8f5] border-2 border-gold/50 rounded-xl p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="inline-flex flex-col items-center justify-center bg-gold text-dark-bg font-bold rounded-lg w-14 h-14 mb-4 shadow-sm">
+                      <span className="text-[10px] tracking-widest uppercase font-semibold">
+                        NOV
+                      </span>
+                      <span className="font-serif text-2xl font-bold leading-none">7</span>
+                    </div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-serif text-lg font-bold text-gray-900">
+                        Community Class &middot; Friday, November 7
+                      </h3>
+                    </div>
+                    <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-dark-bg bg-gold rounded-full px-2.5 py-0.5 mb-3">
+                      Free &middot; Open to the Community
+                    </span>
+                    <p className="text-xs text-gray-500 font-semibold mb-3">Time & location TBD</p>
+                    <div className="border-t border-dashed border-gray-300 pt-3 space-y-2.5 text-xs text-gray-700 leading-relaxed">
+                      <strong className="text-[#154734] block text-sm font-bold">
+                        Next Steps With AI &mdash; Shaped by You
+                      </strong>
+                      <p>
+                        The agenda for this free community session will be determined from the
+                        October 28 class &mdash; we'll build on what attendees want to explore next.
+                        Come with your questions and real-world tasks, and we'll work through them
+                        together.
+                      </p>
+                      <ul className="space-y-1.5 list-disc pl-4 text-gray-600">
+                        <li>Open to everyone in the community &mdash; no experience needed</li>
+                        <li>Hands-on practice with practical, everyday AI tasks</li>
+                        <li>Bring your own questions, projects, or ideas to work through</li>
+                        <li>Responsible AI use and privacy guidance included</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
+                    <strong className="text-gold font-bold">Leave with:</strong> Practical next
+                    steps you can use right away, and a clear path for continuing your AI learning.
+                  </p>
                 </div>
               </div>
               <p className="text-xs border-t border-gray-200 pt-3 mt-4 text-gray-700">
