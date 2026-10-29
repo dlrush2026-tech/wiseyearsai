@@ -5,10 +5,10 @@ export function Hero() {
         <img
           src="https://vibe.filesafe.space/1793048052107408140/attachments/a7a23d83-1667-4b30-a7d1-935f612b76a1.png"
           alt="Dee Rush leading a practical, hands-on AI training session with a whiteboard in a conference room"
-          className="w-full h-full object-cover object-center lg:object-[65%_center] brightness-[0.7]"
+          className="w-full h-full object-cover object-center lg:object-[65%_center] brightness-100"
         />
-        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/65 to-black/20" />
-        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/45 to-black/5" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/10" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
