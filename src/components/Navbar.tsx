@@ -1,12 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, Phone, Calendar } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
-interface NavbarProps {
-  onOpenBooking: () => void;
-}
-
-export function Navbar({ onOpenBooking }: NavbarProps) {
+export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -71,23 +67,10 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           >
             Contact Us
           </Link>
-          <button
-            onClick={onOpenBooking}
-            className="inline-flex items-center gap-2 rounded-sm bg-gold-metallic px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-black transition-all shadow-sm hover:shadow active:scale-[0.99] cursor-pointer"
-          >
-            <Calendar className="w-3.5 h-3.5" />
-            Book a Consulting Appointment
-          </button>
         </nav>
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-3">
-          <button
-            onClick={onOpenBooking}
-            className="rounded-sm bg-gold px-3 py-1.5 text-[11px] font-bold uppercase text-black"
-          >
-            Book
-          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 text-gray-300 hover:text-white focus:outline-none"
@@ -136,17 +119,6 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
           >
             Contact Us
           </Link>
-          <div className="pt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenBooking();
-              }}
-              className="w-full text-center rounded-sm bg-gold-metallic px-4 py-3 text-xs font-bold uppercase tracking-wider text-black transition-all"
-            >
-              Book a Consulting Appointment
-            </button>
-          </div>
         </div>
       )}
     </header>

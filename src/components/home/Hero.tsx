@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export function Hero() {
   return (
     <section className="relative w-full min-h-[640px] lg:min-h-[720px] flex items-center bg-dark-bg text-white overflow-hidden">
@@ -44,6 +46,21 @@ export function Hero() {
             <span className="font-semibold text-gold">Live instruction.</span> Practical examples.
             Responsible AI use. No technical background required.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <Link
+              to="/events"
+              className="inline-flex items-center justify-center rounded-md bg-gold-metallic px-6 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all shadow hover:shadow-lg"
+            >
+              Explore AI Classes
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center rounded-md border border-gold/50 bg-transparent px-6 py-3 text-sm font-bold uppercase tracking-wider text-gold transition-all hover:bg-gold/10"
+            >
+              Sponsor AI Training
+            </Link>
+          </div>
 
           <div className="pt-6 mt-2 max-w-lg">
             <div className="flex items-center gap-5 border-t border-white/15 pt-6">
