@@ -15,33 +15,37 @@ export function Hero() {
         <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center rounded-full border border-gold/40 bg-gold/15 px-4 py-1.5 backdrop-blur-xs">
             <span className="text-xs font-bold tracking-[0.18em] uppercase text-gold">
-              Practical AI Training for Real Life and Work
+              Live, Hands-on AI Literacy Training for Mature Adults
             </span>
           </div>
 
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
-            Learn to <span className="text-gold-metallic">Use AI</span> With{" "}
-            <span className="text-gold-metallic">Confidence</span>
+            AI Training Where <span className="text-gold-metallic">Every Question Matters.</span>
           </h1>
 
-          <h2 className="text-xl sm:text-2xl font-serif font-semibold text-white/95">
-            Practical, hands-on AI training for mature adults and today&apos;s workforce.
-          </h2>
-
-          <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-xl">
-            You don&apos;t need to be a technology expert to benefit from AI. Learn how to use AI
-            for everyday tasks, workplace responsibilities, writing, research, planning, and
-            problem-solving through practical training designed around your needs. Whether
-            you&apos;re just getting started or want to build on your existing skills, you&apos;ll
-            learn at a pace that works for you.
+          <p className="text-lg sm:text-xl font-serif font-semibold text-white/95">
+            Because learning AI shouldn&apos;t leave anyone behind.
           </p>
 
-          <p className="pt-2 text-sm text-gray-300">
+          <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-xl">
+            At Wise Years AI, we believe learning happens by doing. Our patient, instructor-led
+            classes give you the opportunity to ask questions, practice new skills, and discover
+            what AI can help you accomplish at work and in everyday life.
+          </p>
+
+          <div className="rounded-xl border border-gold/30 bg-gold/10 px-5 py-4 backdrop-blur-xs">
+            <p className="text-base sm:text-lg font-semibold text-white leading-relaxed">
+              <span className="text-gold">Every participant</span> leaves each class with something
+              they&apos;ve created, tested, and learned to use independently.
+            </p>
+          </div>
+
+          <p className="pt-1 text-sm text-gray-300">
             <span className="font-semibold text-gold">Live instruction.</span> Practical examples.
             Responsible AI use. No technical background required.
           </p>
 
-          <div className="pt-8 mt-2 max-w-lg">
+          <div className="pt-6 mt-2 max-w-lg">
             <div className="flex items-center gap-5 border-t border-white/15 pt-6">
               <div className="group relative w-16 h-16 shrink-0">
                 <span
