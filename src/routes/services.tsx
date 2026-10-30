@@ -161,7 +161,7 @@ function ServicesPage() {
                       alt={svc.title}
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute top-4 right-4">
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
                       <span className="rounded-full bg-dark-bg/85 backdrop-blur-xs border border-gold/40 text-gold px-3 py-1 text-[11px] font-bold uppercase tracking-wider shadow">
                         {svc.audience}
                       </span>
