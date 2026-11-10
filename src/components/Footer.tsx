@@ -54,7 +54,7 @@ export function Footer({ onOpenBooking }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link to="/events" className="hover:text-gold transition-colors">
+                <Link to="/upcoming-classes" className="hover:text-gold transition-colors">
                   Events
                 </Link>
               </li>

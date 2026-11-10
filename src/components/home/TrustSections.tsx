@@ -70,7 +70,7 @@ export function TrustSections() {
                   Meet Dee
                 </Link>
                 <Link
-                  to="/events"
+                  to="/upcoming-classes"
                   className="inline-flex items-center gap-2 rounded-md border border-white/30 px-6 py-3 text-sm font-bold uppercase tracking-wider text-white transition-all hover:border-gold hover:text-gold"
                 >
                   View Upcoming Workshops

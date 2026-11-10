@@ -50,7 +50,7 @@ export function Navbar() {
             Services
           </Link>
           <Link
-            to="/events"
+            to="/upcoming-classes"
             className="text-xs uppercase tracking-wider text-gray-300 hover:text-gold transition-colors font-medium [&.active]:text-gold"
           >
             Upcoming Classes
@@ -99,7 +99,7 @@ export function Navbar() {
             Services
           </Link>
           <Link
-            to="/events"
+            to="/upcoming-classes"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-sm uppercase tracking-wider text-gray-200 hover:text-gold font-medium"
           >
