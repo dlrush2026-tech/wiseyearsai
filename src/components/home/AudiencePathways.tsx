@@ -89,7 +89,7 @@ export function AudiencePathways({ onOpenBooking }: AudiencePathwaysProps) {
               onClick={onOpenBooking}
               className="inline-flex items-center gap-2 rounded-md bg-gold-metallic px-5 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all cursor-pointer"
             >
-              Discuss Team Training
+              Book Team Training
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
