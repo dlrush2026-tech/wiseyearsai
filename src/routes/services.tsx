@@ -79,7 +79,7 @@ function ServicesPage() {
         "Spotting AI scams, deepfakes, and misinformation",
         "Responsible AI use and protecting personal information",
       ],
-      idealFor: "Mature adults, caregivers, individual professionals",
+      idealFor: "Mature adults, retirees, and individual mature professionals",
       cta: "Book Individual Training",
       calendar: "mature-workforce",
     },
@@ -96,8 +96,9 @@ function ServicesPage() {
         "Organizing notes, agendas, and meeting prep",
         "Responsible AI use and data safety for your team",
       ],
-      idealFor: "Nonprofit staff, community teams, small businesses",
-      cta: "Discuss Team Training",
+      idealFor:
+        "Nonprofit staff, small-business teams, and mature professionals — or community members — looking to build new skills or reskill",
+      cta: "Book Team Training",
       calendar: "live-training",
     },
     {
@@ -113,8 +114,9 @@ function ServicesPage() {
         "AI use policy and human-in-the-loop oversight",
         "Practical adoption plan for your team",
       ],
-      idealFor: "Executive directors, operations managers, board leaders",
-      cta: "Request a Consultation",
+      idealFor:
+        "Small businesses, corporate management, executive directors, and any firm wanting to train or retrain its staff",
+      cta: "Book a Consultation",
       calendar: "strategic-consulting",
     },
   ];
