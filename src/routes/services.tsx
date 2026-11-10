@@ -29,13 +29,30 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
+type FilterKey = "all" | "individual" | "team" | "consulting";
+
 function ServicesPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [bookingCalendar, setBookingCalendar] = useState<CalendarKey>("discovery");
+  const [filter, setFilter] = useState<FilterKey>("all");
 
   const openBooking = (key: CalendarKey) => {
     setBookingCalendar(key);
     setModalOpen(true);
+  };
+
+  const filters: { key: FilterKey; label: string; text: string }[] = [
+    { key: "individual", label: "Learning for yourself?", text: "1-on-1 Coaching" },
+    { key: "team", label: "Training your team?", text: "Live Workshops" },
+    { key: "consulting", label: "Planning AI adoption?", text: "Strategic Consulting" },
+  ];
+
+  // Determine which service indices are visible for the active filter.
+  const visibleIndices = (key: FilterKey): number[] => {
+    if (key === "individual") return [0]; // A only
+    if (key === "team") return [0, 1]; // A and B
+    if (key === "consulting") return [2]; // C only
+    return [0, 1, 2]; // all
   };
 
   const services: {
@@ -122,23 +139,27 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* Quick path selector */}
+      {/* Filter selector */}
       <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-          {[
-            { label: "Learning for yourself?", to: "#individual", text: "1-on-1 Coaching" },
-            { label: "Training your team?", to: "#team", text: "Live Workshops" },
-            { label: "Planning AI adoption?", to: "#consulting", text: "Strategic Consulting" },
-          ].map((p, i) => (
-            <a
-              key={i}
-              href={p.to}
-              className="block rounded-xl bg-white border border-gray-200 p-5 hover:border-gold transition-colors"
-            >
-              <p className="text-sm text-gray-500">{p.label}</p>
-              <p className="font-serif text-lg font-bold text-gray-900 mt-1">{p.text}</p>
-            </a>
-          ))}
+          {filters.map((p) => {
+            const active = filter === p.key;
+            return (
+              <button
+                key={p.key}
+                type="button"
+                onClick={() => setFilter(p.key)}
+                className={`block rounded-xl p-5 transition-all cursor-pointer text-left sm:text-center border ${
+                  active
+                    ? "bg-dark-bg text-white border-gold shadow-md"
+                    : "bg-white text-gray-900 border-gray-200 hover:border-gold"
+                }`}
+              >
+                <p className={`text-sm ${active ? "text-gold" : "text-gray-500"}`}>{p.label}</p>
+                <p className="font-serif text-lg font-bold mt-1">{p.text}</p>
+              </button>
+            );
+          })}
         </div>
       </section>
 
@@ -146,6 +167,7 @@ function ServicesPage() {
       <section className="pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((svc, i) => {
+            if (!visibleIndices(filter).includes(i)) return null;
             const Icon = svc.icon;
             const anchor = i === 0 ? "individual" : i === 1 ? "team" : "consulting";
             return (
