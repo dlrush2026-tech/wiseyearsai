@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as FeedbackRouteImport } from './routes/feedback'
+import { Route as LiveClassesRouteImport } from './routes/live-classes'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as UpcomingClassesRouteImport } from './routes/upcoming-classes'
 
@@ -42,6 +43,11 @@ const FeedbackRoute = FeedbackRouteImport.update({
   path: '/feedback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LiveClassesRoute = LiveClassesRouteImport.update({
+  id: '/live-classes',
+  path: '/live-classes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/feedback': typeof FeedbackRoute
+  '/live-classes': typeof LiveClassesRoute
   '/services': typeof ServicesRoute
   '/upcoming-classes': typeof UpcomingClassesRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/feedback': typeof FeedbackRoute
+  '/live-classes': typeof LiveClassesRoute
   '/services': typeof ServicesRoute
   '/upcoming-classes': typeof UpcomingClassesRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/feedback': typeof FeedbackRoute
+  '/live-classes': typeof LiveClassesRoute
   '/services': typeof ServicesRoute
   '/upcoming-classes': typeof UpcomingClassesRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/feedback'
+    | '/live-classes'
     | '/services'
     | '/upcoming-classes'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/feedback'
+    | '/live-classes'
     | '/services'
     | '/upcoming-classes'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/events'
     | '/feedback'
+    | '/live-classes'
     | '/services'
     | '/upcoming-classes'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
   FeedbackRoute: typeof FeedbackRoute
+  LiveClassesRoute: typeof LiveClassesRoute
   ServicesRoute: typeof ServicesRoute
   UpcomingClassesRoute: typeof UpcomingClassesRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FeedbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/live-classes': {
+      id: '/live-classes'
+      path: '/live-classes'
+      fullPath: '/live-classes'
+      preLoaderRoute: typeof LiveClassesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
   FeedbackRoute: FeedbackRoute,
+  LiveClassesRoute: LiveClassesRoute,
   ServicesRoute: ServicesRoute,
   UpcomingClassesRoute: UpcomingClassesRoute,
 }

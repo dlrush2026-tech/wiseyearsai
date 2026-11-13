@@ -49,7 +49,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row gap-3 pt-2">
             <Link
-              to="/upcoming-classes"
+              to="/live-classes"
               className="inline-flex items-center justify-center rounded-md bg-gold-metallic px-6 py-3 text-sm font-bold uppercase tracking-wider text-dark-bg transition-all shadow hover:shadow-lg"
             >
               Explore AI Classes
